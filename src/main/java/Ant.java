@@ -6,7 +6,7 @@ import java.util.Hashtable;
 public class Ant {
     ArrayList<Edge> tour;
     double tour_length;
-    TravellingSalespersonProblem problem;
+    TSP problem;
 
 
 
