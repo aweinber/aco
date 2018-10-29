@@ -1,3 +1,4 @@
+
 public class City {
     private double xcord;
     private double ycord;
@@ -6,5 +7,7 @@ public class City {
         this.xcord = xcord;
         this.ycord = ycord;
     }
+
+
 
 }
