@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Ant {
     ArrayList<Edge> tour;
     double tour_length;
-    TravellingSalespersonProblem problem;
+    TSP problem;
 
 
 
