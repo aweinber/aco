@@ -1,4 +1,3 @@
-
 public class City {
     private Double xcord;
     private Double ycord;
@@ -11,3 +10,4 @@ public class City {
 
 
 }
+
