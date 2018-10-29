@@ -5,14 +5,7 @@ public class Ant {
     double tour_length;
     TravellingSalespersonProblem problem;
 
-    public Edge(ArrayList<Edge> tour, TravellingSalespersonProblem problem) {
-        this.tour = tour;
-        this.problem = problem;
-    }
 
-    public Edge(TravellingSalespersonProblem problem) {
-        this.problem = problem;
-    }
 
     /**
      * Complete tour by adding cities
