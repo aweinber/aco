@@ -1,9 +1,9 @@
 
 public class City {
-    private double xcord;
-    private double ycord;
+    private Double xcord;
+    private Double ycord;
 
-    public City(double xcord, double ycord) {
+    public City(Double xcord, Double ycord) {
         this.xcord = xcord;
         this.ycord = ycord;
     }

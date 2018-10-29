@@ -5,12 +5,18 @@ import java.io.IOException;
 
 public class TSP {
 
-    private String filename;
-    public TSP(String filename) {
+    /* the name of the string  and filename that we will be using*/
+    static String filename;
+
+    /* initial constructor for TSP instance */
+    public TSP(String filename){
         this.filename = filename;
     }
-    ArrayList<Edge> Edges = new ArrayList<Edge>();
-    ArrayList<City> cities = new ArrayList<City>();
+
+
+    /* make global variables to create the TSP problem */
+    static ArrayList<Edge> Edges = new ArrayList<Edge>();
+    static ArrayList<City> cities = new ArrayList<City>();
 
     public static void main() {
 
@@ -19,12 +25,13 @@ public class TSP {
 
     }
 
+    /*  creates all of from each city to each other city so that function will */
     public static ArrayList<Edge> create_edges(ArrayList<City> cities){
-        ArrayList<Edge> edges; = new ArrayList<Edge>();
+        ArrayList<Edge> edges = new ArrayList<Edge>();
         Edge edge;
         for(City x: cities){
             for(City y: cities) {
-                edge = new Edge(x, y, 0);
+                edge = new Edge(x, y, 0.0);
                 edges.add(edge);
             }
         }
@@ -48,9 +55,9 @@ public class TSP {
 
 
                 //split line by space
-                string array1[]= line.split(" ");
-                double x_cord = string(array1[0]);
-                double y_cord = string (array1[1]);
+                String array1[]= line.split(" ");
+                Double x_cord = Double.parseDouble(array1[0]);
+                Double y_cord = Double.parseDouble(array1[1]);
 
                 //create new city instance from
                 City city = new City(x_cord, y_cord);
