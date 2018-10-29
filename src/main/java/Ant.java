@@ -1,3 +1,3 @@
-public class Ant {
+public class Ant{
 
 }
