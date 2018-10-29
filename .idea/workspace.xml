@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d344e757-cbab-4337-883b-1e258e3496a8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Ant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Edge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/City.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/TravellingSalespersonProblem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Ant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Edge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Edge.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -49,20 +49,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Ant.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Ant.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Ant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="364">
+              <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+              <folding>
+                <element signature="e#308#309#0" expanded="true" />
+                <element signature="e#346#347#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Edge.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Edge.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Edge.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="1" lean-forward="true" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+            <state relative-caret-position="105">
+              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="City.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/City.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="17" selection-start-column="17" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TravellingSalespersonProblem.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/TravellingSalespersonProblem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="41" selection-start-column="41" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -83,8 +105,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/main/java/Ant.java" />
         <option value="$PROJECT_DIR$/src/main/java/Edge.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Ant.java" />
       </list>
     </option>
   </component>
@@ -213,12 +235,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1540777968606</updated>
-      <workItem from="1540777971490" duration="928000" />
+      <workItem from="1540777971490" duration="1682000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="928000" />
+    <option name="totallyTimeSpent" value="1682000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="777" extended-state="6" />
@@ -284,17 +306,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Ant.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/TravellingSalespersonProblem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        <state>
+          <caret column="41" selection-start-column="41" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/City.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Edge.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="1" lean-forward="true" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="1" />
+        <state relative-caret-position="105">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Ant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="e#308#309#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
