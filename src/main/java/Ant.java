@@ -18,7 +18,9 @@ public class Ant {
      * Update pheremone levels for every edge in the tour
      */
     private void update_pheremone_level() {
-
+        for (Edge e : tour) {
+            double newP = e.getPheremone_level();
+        }
     }
 
 

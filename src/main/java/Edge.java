@@ -13,4 +13,11 @@ public class Edge{
 
     }
 
+    public double getPheremone_level() {
+        return pheremone_level;
+    }
+
+    public void setPheremone_level(double pheremone_level) {
+        this.pheremone_level = pheremone_level;
+    }
 }
