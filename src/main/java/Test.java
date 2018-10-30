@@ -24,7 +24,7 @@ public class Test{
 
             num_ants = 10;
             num_iterations = 100;
-            alpha =1;
+            alpha = 1;
             beta = 2;
             evaporation_factor = 0.1;
             elitism_factor = num_ants;

@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Hashtable;
+import java.util.*;
 
 public class Ant {
     ArrayList<Edge> tour;
@@ -14,8 +11,40 @@ public class Ant {
      * Complete tour by adding cities
      */
     private void complete_tour() {
+        HashSet<City> remaining_cities = new HashSet<City>();
+        List<City> cities_list = new ArrayList<City>(remaining_cities);
+        int random_index = (int) Math.random() * cities_list.size();
 
+        City current_city = cities_list.get(random_index);
 
+        remaining_cities.remove(current_city);
+
+        while (! remaining_cities.isEmpty() ) {
+
+            HashMap<Edge, Double> available_edges = build_edges_given_cities(remaining_cities, current_city);
+            Edge next_edge = pick_next_edge(available_edges);
+            City next_city;
+
+            if (next_edge.city_one == current_city) next_city = next_edge.city_two;
+            else next_city = next_edge.city_one; //if (next_edge.city_two == current_city)
+
+            tour.add(next_edge);
+
+            remaining_cities.remove(next_city);
+            current_city = next_city;
+
+        }
+    }
+
+    /**
+     * Builds the edges given a list of cities
+     * @param remaining_cities
+     * @return
+     */
+    private HashMap<Edge, Double> build_edges_given_cities(HashSet<City> remaining_cities, City current_city) {
+
+        //TODO: given the current city and the remaining cities, construct an initial mapping of the available edges
+        return null;
     }
 
 
@@ -32,17 +61,24 @@ public class Ant {
         double current_floor = 0.0;
 
         for (Edge e : available_edges_to_probability.keySet()) {
-            if ( available_edges_to_probability.get(e) + current_floor > probability ) {
+            current_floor += available_edges_to_probability.get(e);
+            if ( current_floor > probability ) {
                 return e;
             }
-            current_floor += available_edges_to_probability.get(e);
         }
 
         return null;
     }
 
 
-
+    /**
+     * Given a mapping of available edges to the probabilities of their selection, reassign the probabilities
+     * based on the sum of the other remaining edges' probabilities.
+     * @param available_edges_to_probability Hashmap Edge -> probability of selecting that edge
+     * @param alpha_constant influence of pheromones
+     * @param beta_constant influence of length
+     * @return reset hashMap
+     */
     private HashMap<Edge, Double> construct_probability_matrix(HashMap<Edge, Double> available_edges_to_probability,
                                                                double alpha_constant, double beta_constant) {
 
