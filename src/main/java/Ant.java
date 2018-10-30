@@ -5,12 +5,11 @@ public class Ant {
     double tour_length;
     TSP problem;
 
-
-
     /**
      * Complete tour by adding cities
      */
     private void complete_tour() {
+
         HashSet<City> remaining_cities = new HashSet<City>();
         List<City> cities_list = new ArrayList<City>(remaining_cities);
         int random_index = (int) Math.random() * cities_list.size();
