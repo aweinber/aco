@@ -9,16 +9,17 @@ public class TSP {
     static String filename;
 
     /* initial constructor for TSP instance */
-    public TSP(String filename){
-        this.filename = filename;
-    }
+//    public TSP(String filename){
+//        this.filename = filename;
+//    }
 
 
     /* make global variables to create the TSP problem */
     static ArrayList<Edge> Edges = new ArrayList<Edge>();
     static ArrayList<City> cities = new ArrayList<City>();
 
-    public static void main() {
+    public static void main(String[] args) {
+        filename = "ulysses16.tsp";
 
         cities = read_cities(filename);
         Edges = create_edges(cities);
@@ -38,39 +39,42 @@ public class TSP {
         return edges;
     }
 
-
+    /*
+        This function parses the file and return all of the x,y coordinate pairs
+        int a list of cities.
+     */
     private static ArrayList<City> read_cities(String fileName){
         BufferedReader reader;
         //Set new object
         ArrayList<City> cities = new ArrayList<City>();
-
         try {
             //set reader to read lines
             reader = new BufferedReader(new FileReader(fileName));
-
             //new line
             String line = reader.readLine();
             //while there are still lines in the file
             while (line != null) {
+                if (line.length() > 0){
+                    if (Character.isDigit(line.charAt(1))) {
 
+                        //split line by space
+                        String array1[] = line.split(" ");
+                        Double x_cord = Double.parseDouble(array1[2]);
+                        Double y_cord = Double.parseDouble(array1[3]);
 
-                //split line by space
-                String array1[]= line.split(" ");
-                Double x_cord = Double.parseDouble(array1[0]);
-                Double y_cord = Double.parseDouble(array1[1]);
+                        //create new city instance from
+                        City city = new City(x_cord, y_cord);
+                        cities.add(city);
 
-                //create new city instance from
-                City city = new City(x_cord, y_cord);
-                cities.add(city);
-
-                //read next line after youve been working on it
+                        //read next line after youve been working on it
+                    }
+                }
                 line = reader.readLine();
-
-
             }
             reader.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.print("error " + e);
+            //e.printStackTrace();
         }
         return cities;
     }
