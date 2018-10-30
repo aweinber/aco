@@ -18,9 +18,7 @@ public class TSP {
     static ArrayList<Edge> Edges = new ArrayList<Edge>();
     static ArrayList<City> cities = new ArrayList<City>();
 
-    public static void main(String[] args) {
-        filename = "ulysses16.tsp";
-
+    public static void main() {
         cities = read_cities(filename);
         Edges = create_edges(cities);
 
