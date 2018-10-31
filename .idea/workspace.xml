@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d344e757-cbab-4337-883b-1e258e3496a8" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ACO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Ant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TSP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TSP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/TravellingSalespersonProblem.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -75,8 +70,8 @@
       <file leaf-file-name="Ant.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Ant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+            <state relative-caret-position="247">
+              <caret line="58" column="34" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
               <folding>
                 <element signature="e#279#285#0" expanded="true" />
                 <element signature="e#361#367#0" expanded="true" />
@@ -287,7 +282,7 @@
       <option name="presentableId" value="Default" />
       <updated>1540777968606</updated>
       <workItem from="1540777971490" duration="1682000" />
-      <workItem from="1540996451094" duration="328000" />
+      <workItem from="1540996451094" duration="726000" />
     </task>
     <task id="LOCAL-00001" summary="Tested the reading in of .tsp files. works as far as I know.">
       <created>1540867214756</created>
@@ -300,7 +295,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5870000" />
+    <option name="totallyTimeSpent" value="6268000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="94" y="23" width="1186" height="777" extended-state="0" />
@@ -311,12 +306,12 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5012953" side_tool="true" visible="true" weight="0.32941177" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.12674825" side_tool="true" visible="true" weight="0.32794118" />
       <window_info anchor="right" id="Maven Projects" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49870467" weight="0.32949308" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4993895" weight="0.328341" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.87325174" visible="true" weight="0.32794118" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Designer" order="2" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49828178" visible="true" weight="0.15034965" />
@@ -698,8 +693,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Ant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        <state relative-caret-position="247">
+          <caret line="58" column="34" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
           <folding>
             <element signature="e#279#285#0" expanded="true" />
             <element signature="e#361#367#0" expanded="true" />

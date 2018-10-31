@@ -10,7 +10,10 @@ public class Ant {
 
     }
     /**
-     * Complete tour by adding cities
+     * Complete a tour. Create a set of cities and edges, then pick a random city to start with.
+     * While there are remaining cities in the set of cities, find all available edges from the current city,
+     * randomly pick one based on the probability sets that are mapped in available_edges, then remove the
+     * destination city from the list of available cities and recompute available edges from the next one.
      */
     public void complete_tour() {
 
@@ -18,11 +21,11 @@ public class Ant {
 
         HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_edges());
 
-        List<City> cities_list = new ArrayList<City>(remaining_cities);
+        List<City> all_cities_list = new ArrayList<City>(remaining_cities);
 
-        int random_index = (int) Math.random() * cities_list.size();
+        int random_index = (int) Math.random() * all_cities_list.size();
 
-        City current_city = cities_list.get(random_index);
+        City current_city = all_cities_list.get(random_index);
 
         remaining_cities.remove(current_city);
 
@@ -30,7 +33,7 @@ public class Ant {
         Edge next_edge;
         City next_city;
 
-        while (! remaining_cities.isEmpty() ) {
+        while (remaining_cities.size() > 0) {
 
             available_edges = find_edges_given_cities(remaining_cities, remaining_edges, current_city);
 
@@ -46,12 +49,14 @@ public class Ant {
             current_city = next_city;
 
         }
+
+
     }
 
     /**
      * Builds the edges given a list of cities
-     * @param remaining_cities
-     * @return
+     * @param remaining_cities the remaining cities to visit
+     * @return all available edges
      */
     private HashMap<Edge, Double> find_edges_given_cities(HashSet<City> remaining_cities, HashSet<Edge> remaining_edges,
                                                           City current_city) {
