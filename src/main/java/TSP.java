@@ -6,7 +6,6 @@ import java.io.IOException;
 public class TSP {
 
     /* the name of the string  and filename that we will be using*/
-    static String filename;
 
     /* initial constructor for TSP instance */
 //    public TSP(String filename){
@@ -18,10 +17,9 @@ public class TSP {
     static ArrayList<Edge> Edges = new ArrayList<Edge>();
     static ArrayList<City> cities = new ArrayList<City>();
 
-    public static void main() {
+    public TSP(String filename){
         cities = read_cities(filename);
         Edges = create_edges(cities);
-
     }
 
     /*  creates all of from each city to each other city so that function will */
