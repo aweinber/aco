@@ -74,5 +74,12 @@ public class TSP {
         }
         return cities;
     }
-}
 
+    public ArrayList<Edge> get_edges(){
+      return Edges;
+    }
+
+    public static ArrayList<City> get_cities() {
+        return cities;
+    }
+}
