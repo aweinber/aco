@@ -5,24 +5,36 @@ public class Ant {
     double tour_length;
     TSP problem;
 
+
+    Ant(TSP problem){
+
+    }
     /**
      * Complete tour by adding cities
      */
-    private void complete_tour() {
+    public void complete_tour() {
 
-        HashSet<City> remaining_cities = new HashSet<City>();
+        HashSet<City> remaining_cities = new HashSet<City>(problem.get_cities());
+
+        HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_edges());
+
         List<City> cities_list = new ArrayList<City>(remaining_cities);
+
         int random_index = (int) Math.random() * cities_list.size();
 
         City current_city = cities_list.get(random_index);
 
         remaining_cities.remove(current_city);
 
+        HashMap<Edge, Double> available_edges;
+        Edge next_edge;
+        City next_city;
+
         while (! remaining_cities.isEmpty() ) {
 
-            HashMap<Edge, Double> available_edges = build_edges_given_cities(remaining_cities, current_city);
-            Edge next_edge = pick_next_edge(available_edges);
-            City next_city;
+            available_edges = find_edges_given_cities(remaining_cities, remaining_edges, current_city);
+
+            next_edge = pick_next_edge(available_edges);
 
             if (next_edge.city_one == current_city) next_city = next_edge.city_two;
             else next_city = next_edge.city_one; //if (next_edge.city_two == current_city)
@@ -30,6 +42,7 @@ public class Ant {
             tour.add(next_edge);
 
             remaining_cities.remove(next_city);
+
             current_city = next_city;
 
         }
@@ -40,10 +53,26 @@ public class Ant {
      * @param remaining_cities
      * @return
      */
-    private HashMap<Edge, Double> build_edges_given_cities(HashSet<City> remaining_cities, City current_city) {
+    private HashMap<Edge, Double> find_edges_given_cities(HashSet<City> remaining_cities, HashSet<Edge> remaining_edges,
+                                                          City current_city) {
 
-        //TODO: given the current city and the remaining cities, construct an initial mapping of the available edges
-        return null;
+        HashMap<Edge, Double> available_edges = new HashMap<Edge, Double>();
+
+        for (Edge edge : remaining_edges) {
+
+            if (edge.city_one == current_city) {
+                if (remaining_cities.contains(edge.city_two)) {
+                    available_edges.put(edge, edge.pheremone_level);
+                }
+            }
+            if (edge.city_two == current_city) {
+                if (remaining_cities.contains(edge.city_one)) {
+                    available_edges.put(edge, edge.pheremone_level);
+                }
+            }
+        }
+
+        return available_edges;
     }
 
 
@@ -98,7 +127,7 @@ public class Ant {
     /**
      * Update pheremone levels for every edge in the tour
      */
-    private void update_pheremone_level(double evaporation_factor, double constant_factor) {
+    public void update_pheremone_level(double constant_factor) {
         for (Edge e : tour) {
             double old_p, new_p;
             old_p = e.getPheremone_level();
@@ -111,7 +140,7 @@ public class Ant {
     /**
      * Compute the distance of any given tour
      */
-    private double get_tour_length() {
+    public double get_tour_length() {
         double counter = 0;
         for (Edge e : tour) {
             counter += e.length;
