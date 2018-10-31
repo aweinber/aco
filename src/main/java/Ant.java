@@ -7,8 +7,10 @@ public class Ant {
 
 
     Ant(TSP problem){
-
+        this.problem = problem;
     }
+
+
     /**
      * Complete a tour. Create a set of cities and edges, then pick a random city to start with.
      * While there are remaining cities in the set of cities, find all available edges from the current city,
@@ -76,7 +78,6 @@ public class Ant {
                 }
             }
         }
-
         return available_edges;
     }
 
@@ -99,7 +100,6 @@ public class Ant {
                 return e;
             }
         }
-
         return null;
     }
 
