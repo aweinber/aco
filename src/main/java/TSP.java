@@ -76,5 +76,8 @@ public class TSP {
         }
         return cities;
     }
-}
 
+    public ArrayList<Edge> get_Edges(){
+      return Edges;
+    }
+}

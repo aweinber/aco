@@ -5,10 +5,14 @@ public class Ant {
     double tour_length;
     TSP problem;
 
+
+    Ant(TSP problem){
+
+    }
     /**
      * Complete tour by adding cities
      */
-    private void complete_tour() {
+    public void complete_tour() {
 
         HashSet<City> remaining_cities = new HashSet<City>();
         List<City> cities_list = new ArrayList<City>(remaining_cities);
@@ -98,7 +102,7 @@ public class Ant {
     /**
      * Update pheremone levels for every edge in the tour
      */
-    private void update_pheremone_level(double evaporation_factor, double constant_factor) {
+    public void update_pheremone_level(double constant_factor) {
         for (Edge e : tour) {
             double old_p, new_p;
             old_p = e.getPheremone_level();
@@ -111,7 +115,7 @@ public class Ant {
     /**
      * Compute the distance of any given tour
      */
-    private double get_tour_length() {
+    public double get_tour_length() {
         double counter = 0;
         for (Edge e : tour) {
             counter += e.length;
