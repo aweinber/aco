@@ -1,9 +1,13 @@
+import java.security.AlgorithmParameterGenerator;
 import java.util.*;
 
 public class Ant {
     ArrayList<Edge> tour;
     double tour_length;
     TSP problem;
+
+    private static final double ALPHA_WEIGHT = .2;
+    private static final double BETA_WEIGHT = .2;
 
 
     Ant(TSP problem){
@@ -38,6 +42,8 @@ public class Ant {
         while (remaining_cities.size() > 0) {
 
             available_edges = find_edges_given_cities(remaining_cities, remaining_edges, current_city);
+
+            available_edges = construct_probability_matrix(available_edges);
 
             next_edge = pick_next_edge(available_edges);
 
@@ -108,21 +114,18 @@ public class Ant {
      * Given a mapping of available edges to the probabilities of their selection, reassign the probabilities
      * based on the sum of the other remaining edges' probabilities.
      * @param available_edges_to_probability Hashmap Edge -> probability of selecting that edge
-     * @param alpha_constant influence of pheromones
-     * @param beta_constant influence of length
      * @return reset hashMap
      */
-    private HashMap<Edge, Double> construct_probability_matrix(HashMap<Edge, Double> available_edges_to_probability,
-                                                               double alpha_constant, double beta_constant) {
+    private HashMap<Edge, Double> construct_probability_matrix(HashMap<Edge, Double> available_edges_to_probability) {
 
         double heuristic_sum = 0.0;
         for (Edge e : available_edges_to_probability.keySet()) {
-            heuristic_sum += (e.getPheremone_level() * alpha_constant) * (e.length * beta_constant);
+            heuristic_sum += (e.getPheremone_level() * ALPHA_WEIGHT) * (e.length * BETA_WEIGHT);
         }
 
         double edge_probability;
         for (Edge e : available_edges_to_probability.keySet()) {
-            edge_probability = ((e.getPheremone_level() * alpha_constant) * (e.length * beta_constant)) / heuristic_sum;
+            edge_probability = ((e.getPheremone_level() * ALPHA_WEIGHT) * (e.length * BETA_WEIGHT)) / heuristic_sum;
             available_edges_to_probability.put(e, edge_probability);
         }
         return available_edges_to_probability;
