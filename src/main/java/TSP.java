@@ -5,18 +5,25 @@ import java.io.IOException;
 
 public class TSP {
 
+    /* the name of the string  and filename that we will be using */
+
+    /* initial constructor for TSP instance */
+//    public TSP(String filename){
+//        this.filename = filename;
+//    }
+
 
     /* make global variables to create the TSP problem */
-    static ArrayList<Edge> Edges = new ArrayList<Edge>();
-    static ArrayList<City> cities = new ArrayList<City>();
+    ArrayList<Edge> edges;
+    ArrayList<City> cities;
 
     public TSP(String filename){
-        cities = read_cities(filename);
-        Edges = create_edges(cities);
+        this.cities = read_cities(filename);
+        this.edges = create_edges(cities);
     }
 
     /*  creates all of from each city to each other city so that function will */
-    public static ArrayList<Edge> create_edges(ArrayList<City> cities){
+    public ArrayList<Edge> create_edges(ArrayList<City> cities){
         ArrayList<Edge> edges = new ArrayList<Edge>();
         Edge edge;
         for(City x: cities){
@@ -32,7 +39,7 @@ public class TSP {
         This function parses the file and return all of the x,y coordinate pairs
         int a list of cities.
      */
-    private static ArrayList<City> read_cities(String fileName){
+    private ArrayList<City> read_cities(String fileName){
         BufferedReader reader;
         //Set new object
         ArrayList<City> cities = new ArrayList<City>();
@@ -69,14 +76,14 @@ public class TSP {
     }
 
     public ArrayList<Edge> get_edges(){
-      return Edges;
+      return edges;
     }
 
-    public static ArrayList<City> get_cities() {
-        return cities;
+    public ArrayList<City> get_cities() {
+        return this.cities;
     }
 
     public ArrayList<Edge> get_Edges() {
-        return Edges;
+        return this.edges;
     }
 }
