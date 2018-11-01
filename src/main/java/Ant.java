@@ -8,16 +8,23 @@ public class Ant {
     double tour_length;
     TSP problem;
 
-    private static final double ALPHA_WEIGHT = .2;
-    private static final double BETA_WEIGHT = .2;
+    double alpha_weight;
+    double beta_weight;
 
-    private static final double CONSTANT_UPDATE_FACTOR = 1;
+    private static final double PHEREMONE_UPDATE_NUMERATOR = 1;
 
 
     Ant(TSP problem){
         this.problem = problem;
     }
 
+    public Ant(ArrayList<Edge> tour, double tour_length, TSP problem, double alpha_weight, double beta_weight) {
+        this.tour = tour;
+        this.tour_length = tour_length;
+        this.problem = problem;
+        this.alpha_weight = alpha_weight;
+        this.beta_weight = beta_weight;
+    }
 
     /**
      * Complete a tour. Create a set of cities and edges, then pick a random city to start with.
@@ -35,7 +42,8 @@ public class Ant {
 
         int random_index = (int) (Math.random() * all_cities_list.size());
 
-        City current_city = all_cities_list.get(random_index);
+        City first_city = all_cities_list.get(random_index);
+        City current_city = first_city;
 
         remaining_cities.remove(current_city);
 
@@ -47,7 +55,7 @@ public class Ant {
 
             available_edges = find_edges_given_cities(remaining_cities, remaining_edges, current_city);
 
-            available_edges = construct_probability_matrix(available_edges);
+            available_edges = construct_probability_dictionary(available_edges);
 
             next_edge = pick_next_edge(available_edges);
 
@@ -60,6 +68,18 @@ public class Ant {
 
             current_city = next_city;
 
+        }
+
+        //return home
+        for (Edge e : remaining_edges) {
+            if (e.city_one == first_city && e.city_two == current_city) {
+                tour.add(e);
+                break;
+            }
+            if (e.city_two == first_city && e.city_one == first_city) {
+                tour.add(e);
+                break;
+            }
         }
 
 
@@ -120,16 +140,16 @@ public class Ant {
      * @param available_edges_to_probability Hashmap Edge -> probability of selecting that edge
      * @return reset hashMap
      */
-    private HashMap<Edge, Double> construct_probability_matrix(HashMap<Edge, Double> available_edges_to_probability) {
+    private HashMap<Edge, Double> construct_probability_dictionary(HashMap<Edge, Double> available_edges_to_probability) {
 
         double heuristic_sum = 0.0;
         for (Edge e : available_edges_to_probability.keySet()) {
-            heuristic_sum += (e.getPheremone_level() * ALPHA_WEIGHT) * (e.length * BETA_WEIGHT);
+            heuristic_sum += (e.getPheremone_level() * alpha_weight) * (e.length * beta_weight);
         }
 
         double edge_probability;
         for (Edge e : available_edges_to_probability.keySet()) {
-            edge_probability = ((e.getPheremone_level() * ALPHA_WEIGHT) * (e.length * BETA_WEIGHT)) / heuristic_sum;
+            edge_probability = ((e.getPheremone_level() * alpha_weight) * (e.length * beta_weight)) / heuristic_sum;
             available_edges_to_probability.put(e, edge_probability);
         }
         return available_edges_to_probability;
@@ -143,7 +163,7 @@ public class Ant {
         for (Edge e : tour) {
             double old_p, new_p;
             old_p = e.getPheremone_level();
-            new_p = old_p + (CONSTANT_UPDATE_FACTOR / e.length);
+            new_p = old_p + (PHEREMONE_UPDATE_NUMERATOR / e.length);
             e.setPheremone_level(new_p);
         }
     }
