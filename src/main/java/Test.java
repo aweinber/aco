@@ -21,7 +21,6 @@ public class Test{
         }
 
         else{
-
             num_ants = 10;
             num_iterations = 100;
             alpha = 1;
