@@ -6,7 +6,7 @@ import java.util.List;
 public class Ant {
 
     ArrayList<Edge> tour;
-    double tour_length;
+    private double tour_length;
     TSP problem;
 
     double alpha_weight;
@@ -155,14 +155,12 @@ public class Ant {
         double probability = Math.random();
         double current_floor = 0.0;
 
-        System.out.println("probability: " + probability);
 
-        System.out.println("keySet: " + available_edges_to_probability.keySet());
         for (Edge e : available_edges_to_probability.keySet()) {
             current_floor += available_edges_to_probability.get(e);
-            System.out.println("current floor: " + current_floor);
+
             if ( current_floor > probability ) {
-                System.out.println("Picked edge " + e);
+
                 return e;
             }
         }
@@ -180,7 +178,7 @@ public class Ant {
 
         double heuristic_sum = 0.0;
         for (Edge e : available_edges_to_probability.keySet()) {
-            heuristic_sum += (e.getPheremone_level() * alpha_weight) * (e.length * beta_weight);
+            heuristic_sum += (e.getPheremone_level() * alpha_weight) * ((1 / e.length) * beta_weight);
         }
 
 

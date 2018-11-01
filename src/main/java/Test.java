@@ -56,7 +56,11 @@ public class Test{
         testMap.put(e2, 0.0);
         testMap.put(e3, 0.0);
         testMap = ant.construct_probability_dictionary(testMap);
-        System.out.println("Updated Map: " + testMap);
+
+
+
+        ant.complete_tour();
+
 
     }
 }
