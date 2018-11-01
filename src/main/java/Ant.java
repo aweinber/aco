@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public class Ant {
+
     ArrayList<Edge> tour;
     double tour_length;
     TSP problem;
@@ -15,7 +16,12 @@ public class Ant {
 
 
     Ant(TSP problem){
+
         this.problem = problem;
+        tour = new ArrayList<Edge>();
+
+        this.alpha_weight = .5;
+        this.beta_weight = .5;
     }
 
     public Ant(ArrayList<Edge> tour, double tour_length, TSP problem, double alpha_weight, double beta_weight) {
@@ -25,6 +31,8 @@ public class Ant {
         this.alpha_weight = alpha_weight;
         this.beta_weight = beta_weight;
     }
+
+
 
     /**
      * Complete a tour. Create a set of cities and edges, then pick a random city to start with.
@@ -51,13 +59,16 @@ public class Ant {
         Edge next_edge;
         City next_city;
 
+
+
         while (remaining_cities.size() > 0) {
 
             available_edges = find_edges_given_cities(remaining_cities, remaining_edges, current_city);
 
             available_edges = construct_probability_dictionary(available_edges);
-
+            System.out.println("New probability matrix: " + available_edges);
             next_edge = pick_next_edge(available_edges);
+
 
             if (next_edge.city_one == current_city) next_city = next_edge.city_two;
             else next_city = next_edge.city_one; //if next_edge.city_two == current_city
@@ -73,14 +84,33 @@ public class Ant {
         //return home
         for (Edge e : remaining_edges) {
             if (e.city_one == first_city && e.city_two == current_city) {
+                current_city = e.city_one;
                 tour.add(e);
                 break;
             }
             if (e.city_two == first_city && e.city_one == first_city) {
+                current_city = e.city_two;
                 tour.add(e);
                 break;
             }
         }
+
+        System.out.println("Num cities: " + all_cities_list.size());
+        System.out.println("Num edges: " + tour.size());
+        System.out.println("First city: " + first_city);
+        System.out.println("Last city: " + current_city);
+
+        StringBuilder sb = new StringBuilder();
+
+        for (Edge e : tour) {
+            sb.append(e);
+            sb.append(" -> ");
+        }
+
+        System.out.println(sb.toString());
+
+        get_tour_length();
+        System.out.println("Tour length: " + tour_length);
 
 
     }
@@ -146,6 +176,7 @@ public class Ant {
         for (Edge e : available_edges_to_probability.keySet()) {
             heuristic_sum += (e.getPheremone_level() * alpha_weight) * (e.length * beta_weight);
         }
+
 
         double edge_probability;
         for (Edge e : available_edges_to_probability.keySet()) {
