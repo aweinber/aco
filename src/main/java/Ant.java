@@ -66,7 +66,8 @@ public class Ant {
             available_edges = find_edges_given_cities(remaining_cities, remaining_edges, current_city);
 
             available_edges = construct_probability_dictionary(available_edges);
-            System.out.println("New probability matrix: " + available_edges);
+
+
             next_edge = pick_next_edge(available_edges);
 
 
@@ -149,14 +150,19 @@ public class Ant {
      * @param available_edges_to_probability hashmap of edge to probability
      * @return the next edge to take
      */
-    private Edge pick_next_edge(HashMap<Edge, Double> available_edges_to_probability) {
+    public Edge pick_next_edge(HashMap<Edge, Double> available_edges_to_probability) {
 
         double probability = Math.random();
         double current_floor = 0.0;
 
+        System.out.println("probability: " + probability);
+
+        System.out.println("keySet: " + available_edges_to_probability.keySet());
         for (Edge e : available_edges_to_probability.keySet()) {
             current_floor += available_edges_to_probability.get(e);
+            System.out.println("current floor: " + current_floor);
             if ( current_floor > probability ) {
+                System.out.println("Picked edge " + e);
                 return e;
             }
         }
@@ -170,7 +176,7 @@ public class Ant {
      * @param available_edges_to_probability Hashmap Edge -> probability of selecting that edge
      * @return reset hashMap
      */
-    private HashMap<Edge, Double> construct_probability_dictionary(HashMap<Edge, Double> available_edges_to_probability) {
+    public HashMap<Edge, Double> construct_probability_dictionary(HashMap<Edge, Double> available_edges_to_probability) {
 
         double heuristic_sum = 0.0;
         for (Edge e : available_edges_to_probability.keySet()) {

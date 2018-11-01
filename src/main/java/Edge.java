@@ -29,4 +29,8 @@ public class Edge{
     public void setPheremone_level(double pheremone_level) {
         this.pheremone_level = pheremone_level;
     }
+
+    public String toString() {
+        return "Edge from " + city_one + " to " + city_two;
+    }
 }
