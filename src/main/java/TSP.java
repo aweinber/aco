@@ -23,14 +23,15 @@ public class TSP {
     }
 
     /*  creates all of from each city to each other city so that function will */
-    public ArrayList<Edge> create_edges(ArrayList<City> cities){
+    public ArrayList<Edge> create_edges(ArrayList<City> cities) {
         ArrayList<Edge> edges = new ArrayList<Edge>();
         Edge edge;
-        for(City x: cities){
-            for(City y: cities) {
-                edge = new Edge(x, y, 0.0);
+        for (int i = 0; i < cities.size() - 1; i++) {
+            for (int j = i + 1; j < cities.size(); j++) {
+                edge = new Edge(cities.get(i), cities.get(j), 10.0);
                 edges.add(edge);
             }
+
         }
         return edges;
     }
