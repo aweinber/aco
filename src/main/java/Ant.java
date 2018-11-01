@@ -1,5 +1,7 @@
-import java.security.AlgorithmParameterGenerator;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 
 public class Ant {
     ArrayList<Edge> tour;
