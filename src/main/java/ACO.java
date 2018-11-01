@@ -26,7 +26,7 @@ public class ACO {
         else if(colony[x].get_tour_length() < bfsf.get_tour_length()){
           this.bfsf.tour = colony[x].tour;
         }
-        colony[x].update_pheremone_level(constant_factor);
+        colony[x].update_pheremone_level();
       }
     }
   }

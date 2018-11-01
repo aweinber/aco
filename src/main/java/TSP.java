@@ -14,8 +14,8 @@ public class TSP {
 
 
     /* make global variables to create the TSP problem */
-    ArrayList<Edge> edges = new ArrayList<Edge>();
-    ArrayList<City> cities = new ArrayList<City>();
+    ArrayList<Edge> edges;
+    ArrayList<City> cities;
 
     public TSP(String filename){
         this.cities = read_cities(filename);

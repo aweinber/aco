@@ -11,6 +11,8 @@ public class Ant {
     private static final double ALPHA_WEIGHT = .2;
     private static final double BETA_WEIGHT = .2;
 
+    private static final double CONSTANT_UPDATE_FACTOR = 1;
+
 
     Ant(TSP problem){
         this.problem = problem;
@@ -31,7 +33,7 @@ public class Ant {
 
         List<City> all_cities_list = new ArrayList<City>(remaining_cities);
 
-        int random_index = (int) Math.random() * all_cities_list.size();
+        int random_index = (int) (Math.random() * all_cities_list.size());
 
         City current_city = all_cities_list.get(random_index);
 
@@ -50,7 +52,7 @@ public class Ant {
             next_edge = pick_next_edge(available_edges);
 
             if (next_edge.city_one == current_city) next_city = next_edge.city_two;
-            else next_city = next_edge.city_one; //if (next_edge.city_two == current_city)
+            else next_city = next_edge.city_one; //if next_edge.city_two == current_city
 
             tour.add(next_edge);
 
@@ -137,11 +139,11 @@ public class Ant {
     /**
      * Update pheremone levels for every edge in the tour
      */
-    public void update_pheremone_level(double constant_factor) {
+    public void update_pheremone_level() {
         for (Edge e : tour) {
             double old_p, new_p;
             old_p = e.getPheremone_level();
-            new_p = old_p + (constant_factor / e.length);
+            new_p = old_p + (CONSTANT_UPDATE_FACTOR / e.length);
             e.setPheremone_level(new_p);
         }
     }
