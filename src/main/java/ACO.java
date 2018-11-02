@@ -19,6 +19,7 @@ public class ACO {
     for(int i = 0; i < this.num_iter; i++){
       move(colony);
       pheremone_evaporation(evaporation_rate);
+
       for(int x = 0; x < this.num_ants; i++){
         if(x == 0 && i == 0){
           this.bfsf.tour = colony[x].tour;
@@ -26,8 +27,8 @@ public class ACO {
         else if(colony[x].get_tour_length() < bfsf.get_tour_length()){
           this.bfsf.tour = colony[x].tour;
         }
-        colony[x].update_pheremone_level();
       }
+      update_best_found_so_far(evaporation_rate);
     }
   }
 
@@ -51,6 +52,16 @@ public class ACO {
       e.setPheremone_level(new_p);
     }
   }
+
+  private void update_best_found_so_far(double evaporation_rate){
+    for(Edge e: bfsf.tour){
+      double old_p, new_p;
+      old_p = e.getPheremone_level();
+      new_p = old_p + evaporation_rate/bfsf.get_tour_length();;
+      e.setPheremone_level(new_p);
+    }
+  }
+
 
   public double get_bfsf_length(){
     return bfsf.get_tour_length();
