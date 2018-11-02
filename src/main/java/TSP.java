@@ -32,8 +32,6 @@ public class TSP {
     /*  creates all of from each city to each other city so that function will */
     public ArrayList<Edge> create_edges(ArrayList<City> cities) {
 
-
-
         ArrayList<City> remaining_cities = new ArrayList<City>();
         for(City e: cities){
             remaining_cities.add(e);
@@ -85,7 +83,6 @@ public class TSP {
         /* while there are remaining cities get the closest city to the current one */
         while (remaining_cities.size() > 0) {
             next_city = get_closest_city(remaining_cities, current_city);
-            System.out.println(next_city.xcord + " " + current_city.xcord);
             remaining_cities.remove(next_city);
             Edge edge = new Edge(current_city, next_city);
             tour.add(edge);
@@ -101,7 +98,6 @@ public class TSP {
         }
 
         phermone_rate = num_ants/total_distance;
-        System.out.println(phermone_rate);
 
         for(Edge e: edges){
             e.pheremone_level = phermone_rate;
