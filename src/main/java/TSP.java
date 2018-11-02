@@ -19,54 +19,78 @@ public class TSP {
     ArrayList<Edge> edges;
     ArrayList<City> cities;
     ArrayList<City> remaining_cities;
-    ArrayList<Edge> tour = new ArrayList<Edge>();
+    double pheremone_initial;
 
     public TSP(String filename, int num_ants) {
-        this.cities = read_cities(filename);
-        this.edges = create_edges(cities);
-        this.remaining_cities = getCities();
-        set_pheremone_initial(num_ants);
+        cities = new ArrayList<City>();
+        cities = read_cities(filename);
+        edges = create_edges(cities);
+        remaining_cities = get_cities();
+        set_pheremone_initial(num_ants, remaining_cities);
     }
 
     /*  creates all of from each city to each other city so that function will */
     public ArrayList<Edge> create_edges(ArrayList<City> cities) {
+
+
+
+        ArrayList<City> remaining_cities = new ArrayList<City>();
+        for(City e: cities){
+            remaining_cities.add(e);
+        }
         ArrayList<Edge> edges = new ArrayList<Edge>();
         Edge edge;
-        for (int i = 0; i < cities.size() - 1; i++) {
-            for (int j = i + 1; j < cities.size(); j++) {
-                edge = new Edge(cities.get(i), cities.get(j));
+
+        City curr_city = remaining_cities.get(0);
+        remaining_cities.remove(curr_city);
+
+
+        while (remaining_cities.size() > 0){
+            for (City e: remaining_cities ) {
+                edge = new Edge(curr_city, e);
                 edges.add(edge);
-                cities.remove(i);
             }
+            curr_city = remaining_cities.get(0);
+            remaining_cities.remove(curr_city);
         }
         return edges;
+
     }
 
 
     /* This function calculates the length of a tour using the nearest neighbor tour completion and uses that
         for the implementation of initial pheremone.
      */
-    public void set_pheremone_initial(int num_ants) {
+    public void set_pheremone_initial(int num_ants, ArrayList<City> cities) {
+        ArrayList<City> remaining_cities = new ArrayList<City>();
+        ArrayList<Edge> tour = new ArrayList<Edge>();
+        for(City e: cities){
+            remaining_cities.add(e);
+        }
 
         double phermone_rate;
-        int random_index = (int) (Math.random() * cities.size());
+        int random_index = (int) (Math.random() * remaining_cities.size());
 
         double total_distance = 0;
 
         /* set the first city equal to the index and curr city as well */
-        City first_city = cities.get(random_index);
-        City current_city = first_city;
+        City first_city = remaining_cities.get(random_index);
+        City current_city;
+        current_city = first_city;
+
         /* remove the city so that you dont make an edge containg itself */
         remaining_cities.remove(current_city);
         City next_city;
 
         /* while there are remaining cities get the closest city to the current one */
         while (remaining_cities.size() > 0) {
-            next_city = get_closest_city(current_city);
+            next_city = get_closest_city(remaining_cities, current_city);
+            System.out.println(next_city.xcord + " " + current_city.xcord);
+            remaining_cities.remove(next_city);
             Edge edge = new Edge(current_city, next_city);
             tour.add(edge);
             remaining_cities.remove(next_city);
-            current_city = next_city;
+
         }
         Edge edge = new Edge(current_city, first_city);
         tour.add(edge);
@@ -77,13 +101,11 @@ public class TSP {
         }
 
         phermone_rate = num_ants/total_distance;
+        System.out.println(phermone_rate);
 
         for(Edge e: edges){
             e.pheremone_level = phermone_rate;
         }
-
-
-
 
     }
 
@@ -95,15 +117,14 @@ public class TSP {
     }
 
 
-    public City get_closest_city(City curr){
+    public City get_closest_city(ArrayList<City> remaining_cities, City curr){
         double best_distance = 100000000;
         City best_city = new City(0.0, 0.0);
         for(City e: remaining_cities){
             double distance = Distance(curr, e);
             if(distance < best_distance){
                 best_distance = distance;
-                best_city.xcord = e.xcord;
-                best_city.ycord = e.ycord;
+                best_city = e;
             }
 
         }
@@ -164,8 +185,6 @@ public class TSP {
         return this.edges;
     }
 
-    public ArrayList<City> getCities() {
-        return cities;
-    }
+
 }
 
