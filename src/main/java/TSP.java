@@ -7,14 +7,6 @@ import java.util.Random;
 
 public class TSP {
 
-    /* the name of the string  and filename that we will be using */
-
-    /* initial constructor for TSP instance */
-//    public TSP(String filename){
-//        this.filename = filename;
-//    }
-
-
     /* make global variables to create the TSP problem */
     ArrayList<Edge> edges;
     ArrayList<City> cities;
@@ -33,14 +25,15 @@ public class TSP {
     public ArrayList<Edge> create_edges(ArrayList<City> cities) {
 
         ArrayList<City> remaining_cities = new ArrayList<City>();
-        for(City e: cities){
-            remaining_cities.add(e);
-        }
+
+        /* Copy all the cities to remaining cities is there a way to copy instead of reference */
+        remaining_cities.addAll(cities);
         ArrayList<Edge> edges = new ArrayList<Edge>();
         Edge edge;
 
         City curr_city = remaining_cities.get(0);
         remaining_cities.remove(curr_city);
+
 
 
         while (remaining_cities.size() > 0){
@@ -143,31 +136,103 @@ public class TSP {
             //new line
             String line = reader.readLine();
             //while there are still lines in the file
+
             while (line != null) {
                 if (line.length() > 0) {
-                    if (Character.isDigit(line.charAt(1))) {
-
-                        //split line by space
-                        String array1[] = line.split(" ");
-                        Double x_cord = Double.parseDouble(array1[2]);
-                        Double y_cord = Double.parseDouble(array1[3]);
-
-                        //create new city instance from
-                        City city = new City(x_cord, y_cord);
-                        cities.add(city);
-
-                        //read next line after youve been working on it
+                    System.out.println(line);
+                    if (line.contains("EDGE_WEIGHT_TYPE: EXPLICIT")) {
+                         cities = read_upper_row(fileName);
+                         return cities;
                     }
                 }
                 line = reader.readLine();
             }
             reader.close();
+            cities = read_euc2D(fileName);
         } catch (IOException e) {
             System.out.print("error " + e);
             //e.printStackTrace();
         }
         return cities;
     }
+
+    public ArrayList<City> read_upper_row(String filename){
+        ArrayList<NewEdge> edges = new ArrayList<NewEdge>();
+        BufferedReader reader;
+        int data_display = 0;
+        try {
+            //set reader to read lines
+            reader = new BufferedReader(new FileReader(filename));
+            //new line
+            String line = reader.readLine();
+            //while there are still lines in the file
+            int CityIndex = 1;
+            while (line != null) {
+                if (line.length() > 0) {
+                    if(Character.isDigit(line.charAt(1))) {
+                        if(Character.isWhitespace(line.charAt(0))){
+                            line = line.replaceFirst(" ", "");
+                        }
+                        line = line.replaceAll("  ", " ");
+                        String[] array = line.split(" ");
+                        for(int i = 0; i < array.length; i ++){
+                            System.out.print(array[i] + " ");
+                            NewEdge edge = new NewEdge(CityIndex, (CityIndex+1), Integer.parseInt(array[i]));
+                            edges.add(edge);
+                        }
+                    }
+                    CityIndex +=1;
+                    //System.out.println(" ");
+                }
+                line = reader.readLine();
+            }
+        }
+        catch(IOException e) {
+            System.out.print("error " + e);
+            //e.printStackTrace();
+        }
+        for(NewEdge e: edges){
+            System.out.print(e.length);
+        }
+
+        return cities;
+
+    }
+
+    public ArrayList<City> read_euc2D(String fileName){
+        ArrayList<City> cities = new ArrayList<City>();
+        BufferedReader reader;
+        try {
+            //set reader to read lines
+            reader = new BufferedReader(new FileReader(fileName));
+            //new line
+            String line = reader.readLine();
+            //while there are still lines in the file
+            while (line != null) {
+                if (line.length() > 0) {
+                    if(Character.isDigit(line.charAt(1)) ) {
+
+                        //split line by space
+                        String array1[] = line.split(" ");
+                        Double x_cord = Double.parseDouble(array1[2]);
+                        Double y_cord = Double.parseDouble(array1[3]);
+
+                        City city = new City(x_cord, y_cord);
+                        cities.add(city);
+                    }
+                }
+                line = reader.readLine();
+            }
+        }
+        catch(IOException e) {
+            System.out.print("error " + e);
+            //e.printStackTrace();
+        }
+        return  cities;
+
+    }
+
+
 
     public ArrayList<Edge> get_edges() {
         return edges;

@@ -5,6 +5,7 @@ public class City {
     public City(Double xcord, Double ycord) {
         this.xcord = xcord;
         this.ycord = ycord;
+
     }
 
     public String toString() {
