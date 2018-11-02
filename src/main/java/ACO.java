@@ -9,7 +9,7 @@ public class ACO {
   double beta;
   Ant bfsf;
 
-  ACO(TSP problem, int num_ants, int num_iter, double phi, double beta, double constant_factor, double evaporation_rate){
+  ACO(TSP problem, int num_ants, int num_iter, double phi, double beta, double evaporation_rate){
     this.num_ants = num_ants;
     create_colony(num_ants, problem);
     this.num_iter = num_iter;

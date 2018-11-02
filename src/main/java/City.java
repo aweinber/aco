@@ -7,6 +7,10 @@ public class City {
         this.ycord = ycord;
     }
 
+    public String toString() {
+        return "(" + xcord + ", " + ycord + ")";
+    }
+
 
 
 
