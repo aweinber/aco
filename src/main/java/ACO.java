@@ -28,7 +28,7 @@ public class ACO {
           this.bfsf.tour = colony[x].tour;
         }
       }
-      update_best_found_so_far(evaporation_rate);
+      update_best_found_so_far_phermone(evaporation_rate);
     }
   }
 
@@ -53,7 +53,7 @@ public class ACO {
     }
   }
 
-  private void update_best_found_so_far(double evaporation_rate){
+  private void update_best_found_so_far_phermone(double evaporation_rate){
     for(Edge e: bfsf.tour){
       double old_p, new_p;
       old_p = e.getPheremone_level();
