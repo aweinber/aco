@@ -16,6 +16,13 @@ public class Edge{
 
     }
 
+//    public Edge(int city_one_index, int city_two_index, double weight){
+//        this.city_one_index = city_one_index;
+//        this.city_two_index = city_two_index;
+//        this.length = weight;
+//
+//    }
+
     private double Distance(City one, City two){
         return Math.hypot(one.xcord - two.xcord, one.ycord - two.ycord);
 

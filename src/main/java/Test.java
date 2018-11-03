@@ -43,9 +43,9 @@ public class Test{
         TSP problem = new TSP("ulysses16.tsp", num_ants);
         Ant ant = new Ant(problem);
 
-        City city1 = new City(1.0, 1.0);
-        City city2 = new City(2.0, 2.0);
-        City city3 = new City(100.0, 100.0);
+        City city1 = new City(1.0, 1.0, 1);
+        City city2 = new City(2.0, 2.0, 2;
+        City city3 = new City(100.0, 100.0, 3);
 
         Edge e1 = new Edge(city1, city2);
         Edge e2 = new Edge(city2, city3);

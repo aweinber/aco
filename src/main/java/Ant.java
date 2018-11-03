@@ -44,7 +44,7 @@ public class Ant {
 
         HashSet<City> remaining_cities = new HashSet<City>(problem.get_cities());
 
-        HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_edges());
+        HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.getEdges());
 
         List<City> all_cities_list = new ArrayList<City>(remaining_cities);
 
@@ -63,7 +63,7 @@ public class Ant {
 
         while (remaining_cities.size() > 0) {
 
-            available_edges = find_edges_given_cities(remaining_cities, remaining_edges, current_city);
+            available_edges = find_edges(remaining_cities, remaining_edges, current_city);
 
             available_edges = construct_probability_dictionary(available_edges);
 
@@ -121,7 +121,7 @@ public class Ant {
      * @param remaining_cities the remaining cities to visit
      * @return all available edges
      */
-    private HashMap<Edge, Double> find_edges_given_cities(HashSet<City> remaining_cities, HashSet<Edge> remaining_edges,
+    private HashMap<Edge, Double> find_edges(HashSet<City> remaining_cities, HashSet<Edge> remaining_edges,
                                                           City current_city) {
 
         HashMap<Edge, Double> available_edges = new HashMap<Edge, Double>();
