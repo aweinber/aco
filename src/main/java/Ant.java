@@ -44,7 +44,7 @@ public class Ant {
 
         HashSet<City> remaining_cities = new HashSet<City>(problem.get_cities());
 
-        HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.getEdges());
+        HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_Edges());
 
         List<City> all_cities_list = new ArrayList<City>(remaining_cities);
 

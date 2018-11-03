@@ -19,9 +19,10 @@ public class TSP {
      */
     public TSP(String filename, int num_ants) {
         cities = new ArrayList<City>();
-        edges = read_cities(filename);
-        remaining_edges = getEdges();
-        set_pheremone_initial(num_ants, edges);
+        cities = read_cities(filename);
+        edges = create_edges(cities);
+        remaining_edges = get_Edges();
+        set_pheremone_initial(num_ants, cities);
     }
 
     /*  creates all of from each city to each other city so that function will */
@@ -37,10 +38,19 @@ public class TSP {
         City curr_city = remaining_cities.get(0);
         remaining_cities.remove(curr_city);
 
+//        while (remaining_cities.size() > 0){
+//            for (City e: remaining_cities ) {
+//                double length = Distance(curr_city, e);
+//                edge = new Edge(curr_city.city_index, e.city_index, length);
+//                edges.add(edge);
+//            }
+//            curr_city = remaining_cities.get(0);
+//            remaining_cities.remove(curr_city);
+//        }
         while (remaining_cities.size() > 0){
             for (City e: remaining_cities ) {
                 double length = Distance(curr_city, e);
-                edge = new Edge(curr_city.city_index, e.city_index, length);
+                edge = new Edge(curr_city, e);
                 edges.add(edge);
             }
             curr_city = remaining_cities.get(0);
@@ -50,50 +60,106 @@ public class TSP {
 
     }
 
+    private double Distance(City one, City two){
+        return Math.hypot(one.xcord - two.xcord, one.ycord - two.ycord);
+
+    }
+
+
+
 
     /* This function calculates the length of a tour using the nearest neighbor tour completion and uses that
         for the implementation of initial pheromone.
      */
-    public void set_pheremone_initial(int num_ants, ArrayList<Edge> edges) {
-        ArrayList<Edge> remaining_edges = new ArrayList<Edge>();
-        ArrayList<Edge> tour = new ArrayList<Edge>();
+//    public void set_pheremone_initial(int num_ants, ArrayList<Edge> edges) {
+//        ArrayList<Edge> remaining_edges = new ArrayList<Edge>();
+//        ArrayList<Edge> tour = new ArrayList<Edge>();
+//
+//        /*
+//            Copy the remaining edges because settign things equal in java is a reference
+//         */
+//        for(Edge e: edges){
+//            remaining_edges.add(e);
+//        }
+//
+//        double phermone_rate;
+//        int random_index = (int) (Math.random() * remaining_edges.size());
+//        double total_distance = 0;
+//
+//        /* set the first city equal to the index and curr city as well */
+//        Edge first_edge = remaining_edges.get(random_index);
+//        Edge current_edge;
+//        current_edge = first_edge;
+//
+//
+//        /* remove the city so that you dont make an edge containg itself */
+//        remaining_edges.remove(current_edge);
+//        City city_one = new City(0.0, 0.0, 0);
+//        City city_two= new City(0.0, 0.0, 0);
+//        Edge next_edge = new Edge(city_one, city_two);
+//
+//        /* while there are remaining edges get the closest edge that maintains the original city */
+//        while (first_edge.city_one != current_edge.city_two){
+//            next_edge = get_closest_edge(remaining_edges, current_edge);
+//            remaining_edges.remove(next_edge);
+//            tour.add(next_edge);
+//            remaining_edges.remove(next_edge);
+//            current_edge = next_edge;
+//
+//        }
+//        for(Edge e: edges){
+//            if(e.city_one == next_edge.city_one && e.city_two == first_edge.city_two){
+//                System.out.println("true");
+//                next_edge = e;
+//            }
+//        }
+//        tour.add(next_edge);
+//
+//        /* finds total distance */
+//        for(Edge e: tour){
+//            total_distance += e.length;
+//        }
+//
+//        phermone_rate = num_ants/total_distance;
+//
+//        for(Edge e: edges){
+//            e.pheremone_level = phermone_rate;
+//        }
+//
+//    }
 
-        /*
-            Copy the remaining edges because settign things equal in java is a reference
-         */
-        for(Edge e: edges){
-            remaining_edges.add(e);
+    public void set_pheremone_initial(int num_ants, ArrayList<City> cities) {
+        ArrayList<City> remaining_cities = new ArrayList<City>();
+        ArrayList<Edge> tour = new ArrayList<Edge>();
+        for(City e: cities){
+            remaining_cities.add(e);
         }
 
         double phermone_rate;
-        int random_index = (int) (Math.random() * remaining_edges.size());
+        int random_index = (int) (Math.random() * remaining_cities.size());
+
         double total_distance = 0;
 
         /* set the first city equal to the index and curr city as well */
-        Edge first_edge = remaining_edges.get(random_index);
-        Edge current_edge;
-        current_edge = first_edge;
-
+        City first_city = remaining_cities.get(random_index);
+        City current_city;
+        current_city = first_city;
 
         /* remove the city so that you dont make an edge containg itself */
-        remaining_edges.remove(current_edge);
-        Edge next_edge = new Edge(0, 0, 0);
+        remaining_cities.remove(current_city);
+        City next_city;
 
-        /* while there are remaining edges get the closest edge that maintains the original city */
-        while (remaining_edges.size() > 0) {
-            next_edge = get_closest_edge(remaining_edges, current_edge);
-            remaining_edges.remove(next_edge);
-            tour.add(next_edge);
-            remaining_edges.remove(next_edge);
+        /* while there are remaining cities get the closest city to the current one */
+        while (remaining_cities.size() > 0) {
+            next_city = get_closest_city(remaining_cities, current_city);
+            remaining_cities.remove(next_city);
+            Edge edge = new Edge(current_city, next_city);
+            tour.add(edge);
+            remaining_cities.remove(next_city);
 
         }
-        for(Edge e: edges){
-            if(e.city_one_index == next_edge.city_one_index && e.city_two_index == first_edge.city_one_index){
-                System.out.println("true");
-                next_edge = e;
-            }
-        }
-        tour.add(next_edge);
+        Edge edge = new Edge(current_city, first_city);
+        tour.add(edge);
 
         /* finds total distance */
         for(Edge e: tour){
@@ -108,18 +174,30 @@ public class TSP {
 
     }
 
-    private double Distance(City one, City two){
-        return Math.hypot(one.xcord - two.xcord, one.ycord - two.ycord);
+    public City get_closest_city(ArrayList<City> remaining_cities, City curr){
+        double best_distance = 100000000;
+        City best_city = new City(0.0, 0.0, 0);
+        for(City e: remaining_cities){
+            double distance = Distance(curr, e);
+            if(distance < best_distance){
+                best_distance = distance;
+                best_city = e;
+            }
 
+        }
+        return best_city;
     }
+
 
 
     public Edge get_closest_edge(ArrayList<Edge> remaining_edges, Edge curr){
         double best_distance = 100000000;
-        Edge best_edge = new Edge(0, 0, 0);
+        City city_one = new City(0.0,0.0,0);
+        City city_two = new City(0.0,0.0,0);
+        Edge best_edge = new Edge(city_one, city_two);
 
         for(Edge e: remaining_edges){
-            if(e.city_two_index == curr.city_one_index){
+            if(e.city_one == curr.city_two){
                 if(e.length < best_distance) {
                     best_distance = e.length;
                     best_edge = e;
@@ -135,10 +213,11 @@ public class TSP {
         This function parses the file and return all of the x,y coordinate pairs
         int a list of cities.
      */
-    private ArrayList<Edge> read_cities(String fileName) {
+    private ArrayList<City> read_cities(String fileName) {
         BufferedReader reader;
         //Set new object
-        ArrayList<Edge> cities = new ArrayList<Edge>();
+        ArrayList<Edge> edges = new ArrayList<Edge>();
+        ArrayList<City> cities = new ArrayList<City>();
         try {
             //set reader to read lines
             reader = new BufferedReader(new FileReader(fileName));
@@ -149,8 +228,7 @@ public class TSP {
                 if (line.length() > 0) {
                     System.out.println(line);
                     if (line.contains("EDGE_WEIGHT_TYPE: EXPLICIT")) {
-                         cities = read_upper_row(fileName);
-                         return cities;
+                         edges = read_upper_row(fileName);
                     }
                 }
                 line = reader.readLine();
@@ -171,7 +249,6 @@ public class TSP {
     public ArrayList<Edge> read_upper_row(String filename){
         ArrayList<Edge> edges = new ArrayList<Edge>();
         BufferedReader reader;
-        int data_display = 0;
         try {
             //set reader to read lines
             reader = new BufferedReader(new FileReader(filename));
@@ -200,8 +277,8 @@ public class TSP {
                         //set the city index
                         for(int i = 0; i < array.length; i ++){
                             System.out.print(array[i] + " ");
-                            Edge edge = new Edge(CityIndex, (CityIndex+1+i), Integer.parseInt(array[i]));
-                            edges.add(edge);
+                            //Edge edge = new Edge(CityIndex, (CityIndex+1+i), Integer.parseInt(array[i]));
+                            //edges.add(edge);
                         }
                     }
                     CityIndex +=1;
@@ -218,7 +295,7 @@ public class TSP {
 
     }
 
-    public ArrayList<Edge> read_euc2D(String fileName){
+    public ArrayList<City> read_euc2D(String fileName){
         ArrayList<City> cities = new ArrayList<City>();
         ArrayList<Edge> edges;
         BufferedReader reader;
@@ -238,9 +315,10 @@ public class TSP {
                         line = line.replaceAll("  ", " ");
 
                         //split line by space
+                        System.out.println(line);
                         String array1[] = line.split(" ");
-                        double x_cord = Double.parseDouble(array1[2]);
-                        double y_cord = Double.parseDouble(array1[3]);
+                        double x_cord = Double.parseDouble(array1[1]);
+                        double y_cord = Double.parseDouble(array1[2]);
                         int city_index = Integer.parseInt(array1[0]);
 
                         City city = new City(x_cord, y_cord, city_index);
@@ -255,17 +333,26 @@ public class TSP {
             //e.printStackTrace();
         }
         edges = create_edges(cities);
-        return edges;
+        return cities;
 
     }
 
 
-    public ArrayList<Edge> getEdges() {
+
+    public ArrayList<Edge> get_Edges() {
         return edges;
     }
 
     public void setEdges(ArrayList<Edge> edges) {
         this.edges = edges;
+    }
+
+    public ArrayList<City> get_cities() {
+        return cities;
+    }
+
+    public void setCities(ArrayList<City> cities) {
+        this.cities = cities;
     }
 }
 
