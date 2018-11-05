@@ -12,7 +12,7 @@ public class ACO {
 
   int max_iterations = 100;
 
-  double optimal;
+
   double percentage_from_optimal = 20;
 
   private static final int TERMINATE_AT_NUM_ITER = 1;
@@ -81,7 +81,7 @@ public class ACO {
   }
 
   private boolean check_percentage_from_optimal() {
-    return ((best.get_tour_length() - optimal / optimal) * 100) < percentage_from_optimal;
+    return ((best.get_tour_length() - problem.optimal / problem.optimal) * 100) < percentage_from_optimal;
   }
 
   private void create_colony(int num_ants, TSP problem){
