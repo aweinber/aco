@@ -25,8 +25,8 @@ public class Test{
 
         else{
 
-            num_ants = 10;
-            num_iterations = 100;
+            num_ants = 50;
+            num_iterations = 200;
             alpha = 1;
             beta = 2;
             evaporation_factor = 0.1;
@@ -34,7 +34,8 @@ public class Test{
             epsilon = 0.1;
 
 
-            TSP problem = new TSP("pr124.tsp", num_ants);
+            TSP problem = new TSP("eil51.tsp", num_ants);
+
 
             System.out.println("EAS alogrithm");
             EAS eas = new EAS(problem, num_ants, num_iterations, alpha, beta, evaporation_factor, elitism_factor);
