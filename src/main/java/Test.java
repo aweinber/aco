@@ -41,7 +41,7 @@ public class Test{
 
             aco.execute_aco();
 
-            System.out.println(aco.get_bfsf_length());
+            System.out.println("Best length: " + aco.get_bfsf_length());
 
         }
     }

@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d344e757-cbab-4337-883b-1e258e3496a8" name="Default" comment="So I added some stuff that works with just edges but I decided to leave it for now the code compiles on my machine.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ACO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ACO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ACO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ACO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Ant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Ant.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -71,8 +67,8 @@
       <file leaf-file-name="ACO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ACO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="59" column="62" selection-start-line="59" selection-start-column="62" selection-end-line="59" selection-end-column="62" />
+            <state>
+              <caret lean-forward="true" />
               <folding>
                 <element signature="e#1405#1411#0" expanded="true" />
                 <element signature="e#1970#1971#0" expanded="true" />
@@ -85,8 +81,8 @@
       <file leaf-file-name="Ant.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Ant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="182" column="42" lean-forward="true" selection-start-line="182" selection-start-column="42" selection-end-line="182" selection-end-column="42" />
+            <state relative-caret-position="2835">
+              <caret line="189" selection-start-line="189" selection-end-line="189" selection-end-column="78" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1359#1365#0" expanded="true" />
@@ -109,8 +105,8 @@
       <file leaf-file-name="Test.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
+            <state relative-caret-position="264">
+              <caret line="43" column="49" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -391,7 +387,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18971000" />
+    <option name="totallyTimeSpent" value="19976000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -784,6 +780,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="43" column="49" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/EAS.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="549">
@@ -791,17 +794,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Ant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="182" column="42" lean-forward="true" selection-start-line="182" selection-start-column="42" selection-end-line="182" selection-end-column="42" />
+        <state relative-caret-position="2835">
+          <caret line="189" selection-start-line="189" selection-end-line="189" selection-end-column="78" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1359#1365#0" expanded="true" />
@@ -813,8 +809,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ACO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="59" column="62" selection-start-line="59" selection-start-column="62" selection-end-line="59" selection-end-column="62" />
+        <state>
+          <caret lean-forward="true" />
           <folding>
             <element signature="e#1405#1411#0" expanded="true" />
             <element signature="e#1970#1971#0" expanded="true" />

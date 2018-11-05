@@ -26,10 +26,11 @@ public class ACO {
   public void execute_aco() {
 
 
-    for(int i = 0; i < this.num_iter; i++) {
+    for(int i = 0; i < num_iter; i++) {
 
       move(colony);
       pheremone_evaporation(evaporation_rate);
+
 
       for(int x = 0; x < this.num_ants; x++){
         if(x == 0 && i == 0){
