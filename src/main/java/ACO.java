@@ -25,7 +25,6 @@ public class ACO {
 
   public void execute_aco() {
 
-
     for(int i = 0; i < num_iter; i++) {
       
       move(colony);

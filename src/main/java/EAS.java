@@ -27,7 +27,6 @@ public class EAS {
 
   public void execute_eas() {
 
-
     for(int i = 0; i < num_iter; i++) {
       
       move(colony);
