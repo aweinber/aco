@@ -14,7 +14,6 @@ public class Ant {
 
     double probability_select_best_leg = .2;
 
-    private static final double PHEREMONE_UPDATE_NUMERATOR = 1;
 
 
     Ant(TSP problem){
@@ -26,9 +25,7 @@ public class Ant {
         this.beta_weight = .5;
     }
 
-    public Ant(ArrayList<Edge> tour, double tour_length, TSP problem, double alpha_weight, double beta_weight) {
-        this.tour = tour;
-        this.tour_length = tour_length;
+    public Ant(TSP problem, double alpha_weight, double beta_weight) {
         this.problem = problem;
         this.alpha_weight = alpha_weight;
         this.beta_weight = beta_weight;
@@ -55,6 +52,7 @@ public class Ant {
         int random_index = (int) (Math.random() * all_cities_list.size());
 
         City first_city = all_cities_list.get(random_index);
+
         City current_city = first_city;
 
         remaining_cities.remove(current_city);
@@ -85,33 +83,10 @@ public class Ant {
 
         }
 
-        //return home
-        for (Edge e : remaining_edges) {
-            if (e.city_one == first_city && e.city_two == current_city) {
-                current_city = e.city_one;
-                tour.add(e);
-                break;
-            }
-            if (e.city_two == first_city && e.city_one == first_city) {
-                current_city = e.city_two;
-                tour.add(e);
-                break;
-            }
-        }
-
-
-        StringBuilder sb = new StringBuilder();
-
-        for (Edge e : tour) {
-            sb.append(e);
-            sb.append(" -> ");
-        }
-
-
+        Edge e = new Edge(current_city, first_city);
+        tour.add(e);
 
         get_tour_length();
-
-
 
     }
 
@@ -151,11 +126,11 @@ public class Ant {
      */
     public Edge pick_next_edge(HashMap<Edge, Double> available_edges_to_probability) {
 
-        double probability = Math.random();
+        double probability_best_leg = Math.random();
         double current_floor = 0.0;
 
 
-        if (probability < probability_select_best_leg) {
+        if (probability_best_leg < probability_select_best_leg) {
 
             double max_probability = -1;
             Edge most_likely_edge = available_edges_to_probability.keySet().iterator().next(); //first one
@@ -168,17 +143,18 @@ public class Ant {
             return most_likely_edge;
         }
 
+        double probability_select_any_num = Math.random();
         for (Edge e : available_edges_to_probability.keySet()) {
 
             current_floor += available_edges_to_probability.get(e);
 
-            if ( current_floor > probability ) {
+            if ( current_floor > probability_select_any_num ) {
 
                 return e;
             }
         }
 
-        System.out.println("About to return null. Current floor: " + current_floor + ", probability: " + probability);
+        System.out.println("About to return null. Current floor: " + current_floor + ", probability: " + probability_select_any_num);
         return null;
     }
 
@@ -218,8 +194,8 @@ public class Ant {
     }
 
 
-    /*
-     * Update pheremone levels for every edge in the tour
+    /**
+     * EAS done after every iteration in algorithm
      */
     public void update_pheremone_level() {
         for (Edge e : tour) {
@@ -230,6 +206,9 @@ public class Ant {
         }
     }
 
+    /**
+     * After every ant's tour in ACO in every iteration of algorithm
+     */
     public void evaporate_and_update_pheremone_level(double epsilon) {
         for (Edge e: tour) {
             double old_p, new_p;
