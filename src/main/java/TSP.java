@@ -22,7 +22,7 @@ public class TSP {
         cities = read_cities(filename);
         edges = create_edges(cities);
         //remaining_edges = get_Edges();
-        System.out.println(edges.size());
+        System.out.println("Num edges: " + edges.size());
         set_pheremone_initial(num_ants, cities);
 
     }
@@ -338,7 +338,7 @@ public class TSP {
 
 
 
-    public ArrayList<Edge> get_Edges() {
+    public ArrayList<Edge> get_edges() {
         return this.edges;
     }
 

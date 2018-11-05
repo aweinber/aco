@@ -34,10 +34,14 @@ public class Test{
             epsilon = 0.1;
 
 
-            //test_ant_construct_dictionary_method(num_ants);
             TSP problem = new TSP("ulysses16.tsp", num_ants);
+
+
             ACO aco = new ACO(problem, num_ants, num_iterations, alpha, beta, evaporation_factor);
-            System.out.println(aco.get_bfsf_length());
+
+            aco.execute_aco();
+
+            System.out.println("Best length: " + aco.get_bfsf_length());
 
         }
     }
@@ -58,10 +62,19 @@ public class Test{
         testMap.put(e1, 0.0);
         testMap.put(e2, 0.0);
         testMap.put(e3, 0.0);
-        testMap = ant.construct_probability_dictionary(testMap);
+
+//        testMap = ant.construct_probability_dictionary(testMap);
+
+        Ant a1 = new Ant(problem);
+        Ant a2 = new Ant(problem);
+
+        a1.complete_tour();
+        System.out.println("A1: " + a1.get_tour_length());
+
+        a2.complete_tour();
+        System.out.println("A2: " + a2.get_tour_length());
 
 
-        ant.complete_tour();
 
     }
 }

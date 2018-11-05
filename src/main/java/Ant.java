@@ -42,11 +42,9 @@ public class Ant {
      */
     public void complete_tour() {
 
-        System.out.println("before complete tour");
-
         HashSet<City> remaining_cities = new HashSet<City>(problem.get_cities());
 
-        HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_Edges());
+        HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_edges());
 
         List<City> all_cities_list = new ArrayList<City>(remaining_cities);
 
@@ -68,7 +66,6 @@ public class Ant {
             available_edges = find_edges(remaining_cities, remaining_edges, current_city);
 
             available_edges = construct_probability_dictionary(available_edges);
-
 
             next_edge = pick_next_edge(available_edges);
 
@@ -98,10 +95,6 @@ public class Ant {
             }
         }
 
-//        System.out.println("Num cities: " + all_cities_list.size());
-//        System.out.println("Num edges: " + tour.size());
-//        System.out.println("First city: " + first_city);
-//        System.out.println("Last city: " + current_city);
 
         StringBuilder sb = new StringBuilder();
 
@@ -110,12 +103,12 @@ public class Ant {
             sb.append(" -> ");
         }
 
-        //System.out.println(sb.toString());
+
 
         get_tour_length();
-       // System.out.println("Tour length: " + tour_length);
 
-        System.out.println("after complete tour");
+
+
     }
 
     /**
@@ -159,6 +152,7 @@ public class Ant {
 
 
         for (Edge e : available_edges_to_probability.keySet()) {
+
             current_floor += available_edges_to_probability.get(e);
 
             if ( current_floor > probability ) {
@@ -166,6 +160,8 @@ public class Ant {
                 return e;
             }
         }
+        System.out.println(available_edges_to_probability);
+        System.out.println("About to return null. Current floor: " + current_floor + ", probability: " + probability);
         return null;
     }
 
@@ -178,18 +174,30 @@ public class Ant {
      */
     public HashMap<Edge, Double> construct_probability_dictionary(HashMap<Edge, Double> available_edges_to_probability) {
 
+
         double heuristic_sum = 0.0;
         for (Edge e : available_edges_to_probability.keySet()) {
-            heuristic_sum += (e.getPheremone_level() * alpha_weight) * ((1 / e.length) * beta_weight);
+            heuristic_sum += calculate_edge_probability(e);
         }
 
-
+        double edge_probability_sum = 0.0;
         double edge_probability;
+
         for (Edge e : available_edges_to_probability.keySet()) {
-            edge_probability = ((e.getPheremone_level() * alpha_weight) * (e.length * beta_weight)) / heuristic_sum;
+            edge_probability = calculate_edge_probability(e) / heuristic_sum;
             available_edges_to_probability.put(e, edge_probability);
         }
+//        System.out.println("Edge probability sum: " + edge_probability_sum);
         return available_edges_to_probability;
+    }
+
+    public double calculate_edge_probability(Edge e) {
+        return (e.getPheremone_level() * alpha_weight * (1/ e.length) * beta_weight);
+    }
+
+    public void set_tour(ArrayList<Edge> tour){
+        this.tour = new ArrayList<Edge>(tour.size());
+        for (Edge item : tour) this.tour.add(item);
     }
 
 

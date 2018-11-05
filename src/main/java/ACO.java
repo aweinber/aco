@@ -7,31 +7,42 @@ public class ACO {
   int num_iter;
   double phi;
   double beta;
+  double evaporation_rate;
   Ant bfsf;
 
   ACO(TSP problem, int num_ants, int num_iter, double phi, double beta, double evaporation_rate){
     colony = new Ant[num_ants];
+    this.problem  = problem;
     this.num_ants = num_ants;
     create_colony(num_ants, problem);
     this.num_iter = num_iter;
     this.phi = phi;
     this.beta = beta;
     this.bfsf = new Ant(problem);
-    for(int i = 0; i < this.num_iter; i++){
-      System.out.println(i);
+    this.evaporation_rate = evaporation_rate;
+
+  };
+
+  public void execute_aco() {
+
+
+    for(int i = 0; i < num_iter; i++) {
+      
       move(colony);
-      System.out.println("after move");
       pheremone_evaporation(evaporation_rate);
 
       for(int x = 0; x < this.num_ants; x++){
         if(x == 0 && i == 0){
-          this.bfsf.tour = colony[x].tour;
+          this.bfsf.set_tour(colony[x].tour);
         }
         else if(colony[x].get_tour_length() < bfsf.get_tour_length()){
-          this.bfsf.tour = colony[x].tour;
+          this.bfsf.set_tour(colony[x].tour);
         }
       }
+
+      System.out.println("Best tour so far: " + this.bfsf.get_tour_length());
       update_best_found_so_far_phermone(evaporation_rate);
+     
     }
   }
 
@@ -43,14 +54,12 @@ public class ACO {
 
   private void move(Ant[] colony){
     for(int i = 0; i < num_ants; i++){
-      System.out.println(i);
       colony[i].complete_tour();
-      System.out.println("exited complete tour");
     }
   }
 
   private void pheremone_evaporation(double evaporation_rate){
-    ArrayList<Edge> edges = new ArrayList<Edge>(problem.get_Edges());
+    ArrayList<Edge> edges = new ArrayList<Edge>(problem.get_edges());
     for(Edge e: edges){
       double old_p, new_p;
       old_p = e.getPheremone_level();
