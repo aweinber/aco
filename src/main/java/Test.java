@@ -34,9 +34,6 @@ public class Test{
             epsilon = 0.1;
 
 
-//            test_ant_construct_dictionary_method(10);
-
-
             TSP problem = new TSP("ulysses16.tsp", num_ants);
 
 

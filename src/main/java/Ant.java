@@ -174,24 +174,25 @@ public class Ant {
      */
     public HashMap<Edge, Double> construct_probability_dictionary(HashMap<Edge, Double> available_edges_to_probability) {
 
-        if (available_edges_to_probability.size() == 1) {
-            Edge e = available_edges_to_probability.keySet().iterator().next();
-            available_edges_to_probability.put(e, 1.0);
-            return available_edges_to_probability;
-        }
 
         double heuristic_sum = 0.0;
         for (Edge e : available_edges_to_probability.keySet()) {
-            heuristic_sum += (e.getPheremone_level() * alpha_weight) * ((1 / e.length) * beta_weight);
+            heuristic_sum += calculate_edge_probability(e);
         }
 
-
+        double edge_probability_sum = 0.0;
         double edge_probability;
+
         for (Edge e : available_edges_to_probability.keySet()) {
-            edge_probability = ((e.getPheremone_level() * alpha_weight) * (e.length * beta_weight)) / heuristic_sum;
+            edge_probability = calculate_edge_probability(e) / heuristic_sum;
             available_edges_to_probability.put(e, edge_probability);
         }
+//        System.out.println("Edge probability sum: " + edge_probability_sum);
         return available_edges_to_probability;
+    }
+
+    public double calculate_edge_probability(Edge e) {
+        return (e.getPheremone_level() * alpha_weight * (1/ e.length) * beta_weight);
     }
 
 

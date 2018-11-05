@@ -12,6 +12,7 @@ public class ACO {
 
   ACO(TSP problem, int num_ants, int num_iter, double phi, double beta, double evaporation_rate){
     colony = new Ant[num_ants];
+    this.problem  = problem;
     this.num_ants = num_ants;
     create_colony(num_ants, problem);
     this.num_iter = num_iter;
@@ -28,7 +29,7 @@ public class ACO {
     for(int i = 0; i < this.num_iter; i++) {
 
       move(colony);
-//      pheremone_evaporation(evaporation_rate);s
+      pheremone_evaporation(evaporation_rate);
 
       for(int x = 0; x < this.num_ants; x++){
         if(x == 0 && i == 0){
@@ -57,7 +58,6 @@ public class ACO {
   }
 
   private void pheremone_evaporation(double evaporation_rate){
-    System.out.println(problem.get_edges());
     ArrayList<Edge> edges = new ArrayList<Edge>(problem.get_edges());
     for(Edge e: edges){
       double old_p, new_p;
