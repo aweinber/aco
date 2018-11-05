@@ -17,14 +17,14 @@ public class Ant {
     private static final double PHEREMONE_UPDATE_NUMERATOR = 1;
 
 
-    Ant(TSP problem){
-
-        this.problem = problem;
-        tour = new ArrayList<Edge>();
-
-        this.alpha_weight = .5;
-        this.beta_weight = .5;
-    }
+//    Ant(TSP problem){
+//
+//        this.problem = problem;
+//        tour = new ArrayList<Edge>();
+//
+//        this.alpha_weight = 1;
+//        this.beta_weight = 2;
+//    }
 
     public Ant(TSP problem, double alpha_weight, double beta_weight) {
         this.problem = problem;

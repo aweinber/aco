@@ -20,7 +20,7 @@ public class TSP {
      */
     public TSP(String filename, int num_ants) {
         cities = new ArrayList<City>();
-        cities = read_cities(filename);
+        cities = read_euc2D(filename);
         edges = create_edges(cities);
         //remaining_edges = get_Edges();
         System.out.println("Num edges: " + edges.size());
@@ -134,24 +134,25 @@ public class TSP {
     public void set_pheremone_initial(int num_ants, ArrayList<City> cities) {
         ArrayList<City> remaining_cities = new ArrayList<City>();
         ArrayList<Edge> tour = new ArrayList<Edge>();
+
+
         for(City e: cities){
             remaining_cities.add(e);
         }
 
         double phermone_rate;
-        int random_index = (int) (Math.random() * remaining_cities.size());
-
+        //int random_index = (int) (Math.random() * remaining_cities.size());
         double total_distance = 0;
 
         /* set the first city equal to the index and curr city as well */
-        City first_city = remaining_cities.get(random_index);
+        City first_city = remaining_cities.get(0);
         City current_city;
         current_city = first_city;
 
-        /* remove the city so that you dont make an edge containg itself */
+        /* remove the city so that you don't make an edge containg itself */
         remaining_cities.remove(current_city);
-        City next_city;
 
+        City next_city;
         /* while there are remaining cities get the closest city to the current one */
         while (remaining_cities.size() > 0) {
             next_city = get_closest_city(remaining_cities, current_city);
@@ -176,6 +177,8 @@ public class TSP {
             e.initial_phermone = phermone_rate;
         }
 
+        System.out.println(phermone_rate);
+
     }
 
     public City get_closest_city(ArrayList<City> remaining_cities, City curr){
@@ -191,7 +194,6 @@ public class TSP {
         }
         return best_city;
     }
-
 
 
     public Edge get_closest_edge(ArrayList<Edge> remaining_edges, Edge curr){
@@ -211,7 +213,6 @@ public class TSP {
         }
         return best_edge;
     }
-
 
     /*
         This function parses the file and return all of the x,y coordinate pairs
@@ -242,6 +243,7 @@ public class TSP {
             System.out.print("error " + e);
             //e.printStackTrace();
         }
+        System.out.println("this is cities size" + cities.size());
         return cities;
     }
 
@@ -310,11 +312,8 @@ public class TSP {
             //while there are still lines in the file
             while (line != null) {
                 if (line.length() > 0) {
-                    if(Character.isDigit(line.charAt(1)) ) {
+                    if(Character.isDigit(line.charAt(0)) ) {
 
-                        if(Character.isWhitespace(line.charAt(0))){
-                            line = line.replaceFirst(" ", "");
-                        }
                         line = line.replaceAll("  ", " ");
 
                         //split line by space
@@ -334,26 +333,16 @@ public class TSP {
             System.out.print("error " + e);
             //e.printStackTrace();
         }
+        System.out.println("this is num cities" + cities.size());
         return cities;
 
     }
-
-
 
     public ArrayList<Edge> get_edges() {
         return this.edges;
     }
-
-    public void setEdges(ArrayList<Edge> edges) {
-        this.edges = edges;
-    }
-
     public ArrayList<City> get_cities() {
         return cities;
-    }
-
-    public void setCities(ArrayList<City> cities) {
-        this.cities = cities;
     }
 }
 

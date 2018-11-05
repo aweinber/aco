@@ -25,7 +25,7 @@ public class Test{
 
         else{
 
-            num_ants = 10;
+            num_ants = 20;
             max_iterations = 100;
             alpha = 1;
             beta = 2;
@@ -33,7 +33,7 @@ public class Test{
             elitism_factor = num_ants;
             epsilon = 0.1;
 
-            TSP problem = new TSP("ulysses16.tsp", num_ants);
+            TSP problem = new TSP("pr124.tsp", num_ants);
 
 
             EAS eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, 1);
@@ -41,7 +41,7 @@ public class Test{
             System.out.println("EAS best: " + eas.get_best_length());
 
 
-            problem = new TSP("ulysses16.tsp", num_ants);
+            problem = new TSP("pr124.tsp", num_ants);
 
             System.out.println("\nACO alogrithm");
             ACO aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, 1);
@@ -53,35 +53,35 @@ public class Test{
         }
     }
 
-    public static void test_ant_construct_dictionary_method(int num_ants) {
-        TSP problem = new TSP("ulysses16.tsp", num_ants);
-        Ant ant = new Ant(problem);
-
-        City city1 = new City(1.0, 1.0, 1);
-        City city2 = new City(2.0, 2.0, 2);
-        City city3 = new City(100.0, 100.0, 3);
-
-        Edge e1 = new Edge(city1, city2);
-        Edge e2 = new Edge(city2, city3);
-        Edge e3 = new Edge(city3, city2);
-
-        HashMap<Edge, Double> testMap = new HashMap<Edge, Double>();
-        testMap.put(e1, 0.0);
-        testMap.put(e2, 0.0);
-        testMap.put(e3, 0.0);
-
-//        testMap = ant.construct_probability_dictionary(testMap);
-
-        Ant a1 = new Ant(problem);
-        Ant a2 = new Ant(problem);
-
-        a1.complete_tour();
-        System.out.println("A1: " + a1.get_tour_length());
-
-        a2.complete_tour();
-        System.out.println("A2: " + a2.get_tour_length());
-
-
-
-    }
+//    public static void test_ant_construct_dictionary_method(int num_ants) {
+//        TSP problem = new TSP("ulysses16.tsp", num_ants);
+//        Ant ant = new Ant(problem);
+//
+//        City city1 = new City(1.0, 1.0, 1);
+//        City city2 = new City(2.0, 2.0, 2);
+//        City city3 = new City(100.0, 100.0, 3);
+//
+//        Edge e1 = new Edge(city1, city2);
+//        Edge e2 = new Edge(city2, city3);
+//        Edge e3 = new Edge(city3, city2);
+//
+//        HashMap<Edge, Double> testMap = new HashMap<Edge, Double>();
+//        testMap.put(e1, 0.0);
+//        testMap.put(e2, 0.0);
+//        testMap.put(e3, 0.0);
+//
+////        testMap = ant.construct_probability_dictionary(testMap);
+//
+//        Ant a1 = new Ant(problem);
+//        Ant a2 = new Ant(problem);
+//
+//        a1.complete_tour();
+//        System.out.println("A1: " + a1.get_tour_length());
+//
+//        a2.complete_tour();
+//        System.out.println("A2: " + a2.get_tour_length());
+//
+//
+//
+//    }
 }

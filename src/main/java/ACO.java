@@ -31,11 +31,11 @@ public class ACO {
     this.alpha = alpha;
     this.beta = beta;
     this.best = new Ant(this.problem, this.alpha, this.beta);
-    create_colony();
     this.evaporation_rate = evaporation_rate;
     this.termination_condition = termination_condition;
     this.epsilon = epsilon;
-  };
+    create_colony();
+  }
 
   public void execute_aco() {
 
