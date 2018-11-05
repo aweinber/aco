@@ -42,6 +42,8 @@ public class Ant {
      */
     public void complete_tour() {
 
+        System.out.println("before complete tour");
+
         HashSet<City> remaining_cities = new HashSet<City>(problem.get_cities());
 
         HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_Edges());
@@ -96,10 +98,10 @@ public class Ant {
             }
         }
 
-        System.out.println("Num cities: " + all_cities_list.size());
-        System.out.println("Num edges: " + tour.size());
-        System.out.println("First city: " + first_city);
-        System.out.println("Last city: " + current_city);
+//        System.out.println("Num cities: " + all_cities_list.size());
+//        System.out.println("Num edges: " + tour.size());
+//        System.out.println("First city: " + first_city);
+//        System.out.println("Last city: " + current_city);
 
         StringBuilder sb = new StringBuilder();
 
@@ -108,12 +110,12 @@ public class Ant {
             sb.append(" -> ");
         }
 
-        System.out.println(sb.toString());
+        //System.out.println(sb.toString());
 
         get_tour_length();
-        System.out.println("Tour length: " + tour_length);
+       // System.out.println("Tour length: " + tour_length);
 
-
+        System.out.println("after complete tour");
     }
 
     /**

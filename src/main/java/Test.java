@@ -34,7 +34,10 @@ public class Test{
             epsilon = 0.1;
 
 
-            test_ant_construct_dictionary_method(num_ants);
+            //test_ant_construct_dictionary_method(num_ants);
+            TSP problem = new TSP("ulysses16.tsp", num_ants);
+            ACO aco = new ACO(problem, num_ants, num_iterations, alpha, beta, evaporation_factor);
+            System.out.println(aco.get_bfsf_length());
 
         }
     }
