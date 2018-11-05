@@ -12,6 +12,8 @@ public class Ant {
     double alpha_weight;
     double beta_weight;
 
+    double probability_select_best_leg = .2;
+
     private static final double PHEREMONE_UPDATE_NUMERATOR = 1;
 
 
@@ -153,6 +155,19 @@ public class Ant {
         double current_floor = 0.0;
 
 
+        if (probability < probability_select_best_leg) {
+
+            double max_probability = -1;
+            Edge most_likely_edge = available_edges_to_probability.keySet().iterator().next(); //first one
+            for (Edge e : available_edges_to_probability.keySet()) {
+                if (available_edges_to_probability.get(e) > max_probability) {
+                    most_likely_edge = e;
+                    max_probability = available_edges_to_probability.get(e);
+                }
+            }
+            return most_likely_edge;
+        }
+
         for (Edge e : available_edges_to_probability.keySet()) {
 
             current_floor += available_edges_to_probability.get(e);
@@ -162,7 +177,7 @@ public class Ant {
                 return e;
             }
         }
-        System.out.println(available_edges_to_probability);
+
         System.out.println("About to return null. Current floor: " + current_floor + ", probability: " + probability);
         return null;
     }

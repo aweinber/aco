@@ -12,6 +12,7 @@ public class TSP {
     ArrayList<City> cities;
     ArrayList<Edge> remaining_edges;
     double pheremone_initial;
+    double optimal;
 
 
     /*

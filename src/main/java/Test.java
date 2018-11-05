@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class Test{
 
     public static int num_ants;
-    public static int num_iterations;
+    public static int max_iterations;
     public static double alpha;
     public static double beta;
     public static double evaporation_factor;
@@ -15,7 +15,7 @@ public class Test{
 
         if(args.length > 0) {
             num_ants = Integer.parseInt(args[1]);
-            num_iterations = Integer.parseInt(args[2]);
+            max_iterations = Integer.parseInt(args[2]);
             alpha = Double.parseDouble(args[3]);
             beta = Double.parseDouble(args[4]);
             evaporation_factor = Double.parseDouble(args[5]);
@@ -26,7 +26,7 @@ public class Test{
         else{
 
             num_ants = 10;
-            num_iterations = 100;
+            max_iterations = 100;
             alpha = 1;
             beta = 2;
             evaporation_factor = 0.1;
@@ -35,17 +35,20 @@ public class Test{
 
             TSP problem = new TSP("ulysses16.tsp", num_ants);
 
-            System.out.println("EAS alogrithm");
-            EAS eas = new EAS(problem, num_ants, num_iterations, alpha, beta, evaporation_factor, elitism_factor);
+
+            EAS eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, 1);
             eas.execute_eas();
+            System.out.println("EAS best: " + eas.get_best_length());
+
 
             problem = new TSP("ulysses16.tsp", num_ants);
 
             System.out.println("\nACO alogrithm");
-            ACO aco = new ACO(problem, num_ants, num_iterations, alpha, beta, evaporation_factor, epsilon);
+            ACO aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, 1);
             aco.execute_aco();
 
             System.out.println("Best length: " + aco.get_best_length());
+
 
         }
     }
