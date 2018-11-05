@@ -42,6 +42,8 @@ public class Ant {
      */
     public void complete_tour() {
 
+        tour = new ArrayList<Edge>();
+
         HashSet<City> remaining_cities = new HashSet<City>(problem.get_cities());
 
         HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_edges());
@@ -192,7 +194,7 @@ public class Ant {
     }
 
     public double calculate_edge_probability(Edge e) {
-        return (e.getPheremone_level() * alpha_weight * (1/ e.length) * beta_weight);
+        return (Math.pow(e.getPheremone_level(), alpha_weight) * Math.pow((1/ e.length), beta_weight));
     }
 
     public void set_tour(ArrayList<Edge> tour){

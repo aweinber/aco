@@ -36,12 +36,16 @@ public class Test{
 
             TSP problem = new TSP("pr124.tsp", num_ants);
 
+            System.out.println("EAS alogrithm");
+            EAS eas = new EAS(problem, num_ants, num_iterations, alpha, beta, evaporation_factor, elitism_factor);
+            eas.execute_eas();
 
+            System.out.println("\nACO alogrithm");
             ACO aco = new ACO(problem, num_ants, num_iterations, alpha, beta, evaporation_factor);
-
             aco.execute_aco();
 
-            System.out.println("Best length: " + aco.get_bfsf_length());
+
+            System.out.println("Best length: " + aco.get_best_length());
 
         }
     }
