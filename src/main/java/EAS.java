@@ -48,7 +48,7 @@ public class EAS {
   }
 
   private void pheremone_evaporation(double evaporation_rate){
-    for(Edge e: problem.get_Edges()){
+    for(Edge e: problem.get_edges()){
       double old_p, new_p;
       old_p = e.getPheremone_level();
       new_p = old_p * (1 - evaporation_rate);
