@@ -195,6 +195,11 @@ public class Ant {
         return (e.getPheremone_level() * alpha_weight * (1/ e.length) * beta_weight);
     }
 
+    public void set_tour(ArrayList<Edge> tour){
+        this.tour = new ArrayList<Edge>(tour.size());
+        for (Edge item : tour) this.tour.add(item);
+    }
+
 
     /**
      * Update pheremone levels for every edge in the tour

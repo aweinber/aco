@@ -21,28 +21,28 @@ public class ACO {
     this.bfsf = new Ant(problem);
     this.evaporation_rate = evaporation_rate;
 
-  }
+  };
 
   public void execute_aco() {
 
 
     for(int i = 0; i < num_iter; i++) {
-
+      
       move(colony);
       pheremone_evaporation(evaporation_rate);
 
-
       for(int x = 0; x < this.num_ants; x++){
         if(x == 0 && i == 0){
-          this.bfsf.tour = colony[x].tour;
+          this.bfsf.set_tour(colony[x].tour);
         }
         else if(colony[x].get_tour_length() < bfsf.get_tour_length()){
-          this.bfsf.tour = colony[x].tour;
+          this.bfsf.set_tour(colony[x].tour);
         }
       }
-      System.out.println("Best tour so far: " + this.bfsf.get_tour_length());
 
+      System.out.println("Best tour so far: " + this.bfsf.get_tour_length());
       update_best_found_so_far_phermone(evaporation_rate);
+     
     }
   }
 
