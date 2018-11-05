@@ -23,7 +23,7 @@ public class ACO {
   private int termination_condition;
 
 
-  ACO(TSP problem, int num_ants, int max_iterations, double phi, double beta, double evaporation_rate, double epsilon, int termination_condition){
+  ACO(TSP problem, int num_ants, int max_iterations, double alpha, double beta, double evaporation_rate, double epsilon, int termination_condition){
     colony = new Ant[num_ants];
     this.problem  = problem;
     this.num_ants = num_ants;
@@ -66,22 +66,22 @@ public class ACO {
 
   private boolean should_terminate(int num_iter) {
     if (termination_condition == TERMINATE_AT_FIRST_CONDITION) {
-      return check_num_iterations(num_iter) || check_percentage_from_optimal();
+      return should_terminate_from_max_iterations(num_iter) || should_terminate_from_close_to_optimal();
     }
     else if (termination_condition == TERMINATE_AT_PERCENTAGE_FROM_OPTIMAL) {
-      return check_percentage_from_optimal();
+      return should_terminate_from_close_to_optimal();
     }
     else if (termination_condition == TERMINATE_AT_NUM_ITER) {
-      return check_num_iterations(num_iter);
+      return should_terminate_from_max_iterations(num_iter);
     }
     return false;
   }
 
-  private boolean check_num_iterations(int num_iter) {
+  private boolean should_terminate_from_max_iterations(int num_iter) {
     return num_iter >= max_iterations;
   }
 
-  private boolean check_percentage_from_optimal() {
+  private boolean should_terminate_from_close_to_optimal() {
     return ((best.get_tour_length() - problem.optimal / problem.optimal) * 100) < percentage_from_optimal;
   }
 
