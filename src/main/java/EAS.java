@@ -7,31 +7,47 @@ public class EAS {
   int num_iter;
   double phi;
   double beta;
-  Ant bfsf;
+  double evaporation_rate;
+  Ant best;
   double elitism;
 
+
   EAS(TSP problem, int num_ants, int num_iter, double phi, double beta, double evaporation_rate, double elitism){
+    colony = new Ant[num_ants];
+    this.problem  = problem;
     this.num_ants = num_ants;
     create_colony(num_ants, problem);
     this.num_iter = num_iter;
     this.phi = phi;
     this.beta = beta;
-    this.bfsf = new Ant(problem);
-    for(int i = 0; i < this.num_iter; i++){
+    this.best = new Ant(problem);
+    this.evaporation_rate = evaporation_rate;
+
+  };
+
+  public void execute_eas() {
+
+
+    for(int i = 0; i < num_iter; i++) {
+      
       move(colony);
       pheremone_evaporation(evaporation_rate);
 
-      for(int x = 0; x < this.num_ants; i++){
+      for(int x = 0; x < this.num_ants; x++){
         if(x == 0 && i == 0){
-          this.bfsf.tour = colony[x].tour;
+          this.best.set_tour(colony[x].tour);
         }
-        else if(colony[x].get_tour_length() < bfsf.get_tour_length()){
-          this.bfsf.tour = colony[x].tour;
+        else if(colony[x].get_tour_length() < best.get_tour_length()){
+          this.best.set_tour(colony[x].tour);
         }
         colony[x].update_pheremone_level();
+
       }
+
+      System.out.println("Best tour so far: " + this.best.get_tour_length());
       update_best_found_so_far_phermone(elitism);
 
+     
     }
   }
 
@@ -48,7 +64,8 @@ public class EAS {
   }
 
   private void pheremone_evaporation(double evaporation_rate){
-    for(Edge e: problem.get_edges()){
+    ArrayList<Edge> edges = new ArrayList<Edge>(problem.get_edges());
+    for(Edge e: edges){
       double old_p, new_p;
       old_p = e.getPheremone_level();
       new_p = old_p * (1 - evaporation_rate);
@@ -57,17 +74,17 @@ public class EAS {
   }
 
   private void update_best_found_so_far_phermone(double elitism){
-    for(Edge e: bfsf.tour){
+    for(Edge e: best.tour){
       double old_p, new_p;
       old_p = e.getPheremone_level();
-      new_p = old_p + elitism/bfsf.get_tour_length();;
+      new_p = old_p + elitism/best.get_tour_length();;
       e.setPheremone_level(new_p);
     }
   }
 
-
-  public double get_bfsf_length(){
-    return bfsf.get_tour_length();
+  public double get_best_length(){
+    return best.get_tour_length();
   }
 
 }
+

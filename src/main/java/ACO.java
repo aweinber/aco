@@ -8,7 +8,7 @@ public class ACO {
   double phi;
   double beta;
   double evaporation_rate;
-  Ant bfsf;
+  Ant best;
 
   ACO(TSP problem, int num_ants, int num_iter, double phi, double beta, double evaporation_rate){
     colony = new Ant[num_ants];
@@ -18,7 +18,7 @@ public class ACO {
     this.num_iter = num_iter;
     this.phi = phi;
     this.beta = beta;
-    this.bfsf = new Ant(problem);
+    this.best = new Ant(problem);
     this.evaporation_rate = evaporation_rate;
 
   };
@@ -33,14 +33,14 @@ public class ACO {
 
       for(int x = 0; x < this.num_ants; x++){
         if(x == 0 && i == 0){
-          this.bfsf.set_tour(colony[x].tour);
+          this.best.set_tour(colony[x].tour);
         }
-        else if(colony[x].get_tour_length() < bfsf.get_tour_length()){
-          this.bfsf.set_tour(colony[x].tour);
+        else if(colony[x].get_tour_length() < best.get_tour_length()){
+          this.best.set_tour(colony[x].tour);
         }
       }
 
-      System.out.println("Best tour so far: " + this.bfsf.get_tour_length());
+      System.out.println("Best tour so far: " + this.best.get_tour_length());
       update_best_found_so_far_phermone(evaporation_rate);
      
     }
@@ -65,21 +65,22 @@ public class ACO {
       old_p = e.getPheremone_level();
       new_p = old_p * (1 - evaporation_rate);
       e.setPheremone_level(new_p);
+      //System.out.println(new_p);
     }
   }
 
   private void update_best_found_so_far_phermone(double evaporation_rate){
-    for(Edge e: bfsf.tour){
+    for(Edge e: best.tour){
       double old_p, new_p;
       old_p = e.getPheremone_level();
-      new_p = old_p + evaporation_rate/bfsf.get_tour_length();;
+      new_p = old_p + evaporation_rate/best.get_tour_length();;
       e.setPheremone_level(new_p);
     }
   }
 
 
-  public double get_bfsf_length(){
-    return bfsf.get_tour_length();
+  public double get_best_length(){
+    return best.get_tour_length();
   }
 
 }

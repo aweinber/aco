@@ -42,6 +42,8 @@ public class Ant {
      */
     public void complete_tour() {
 
+        tour = new ArrayList<Edge>();
+
         HashSet<City> remaining_cities = new HashSet<City>(problem.get_cities());
 
         HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_edges());
