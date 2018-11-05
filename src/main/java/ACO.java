@@ -27,11 +27,11 @@ public class ACO {
     colony = new Ant[num_ants];
     this.problem  = problem;
     this.num_ants = num_ants;
-    create_colony();
     this.max_iterations = max_iterations;
     this.alpha = alpha;
     this.beta = beta;
     this.best = new Ant(this.problem, this.alpha, this.beta);
+    create_colony();
     this.evaporation_rate = evaporation_rate;
     this.termination_condition = termination_condition;
     this.epsilon = epsilon;
@@ -42,8 +42,8 @@ public class ACO {
     int num_iter = 0;
 
     while (!should_terminate(num_iter)) {
-      
-      move(colony);
+
+      move_aco(colony);
       pheremone_evaporation(evaporation_rate);
 
       for(int x = 0; x < this.num_ants; x++){
@@ -56,11 +56,8 @@ public class ACO {
       }
 
       update_best_found_so_far_phermone(evaporation_rate);
-
       num_iter++;
-     
     }
-    System.out.println("Terminating at number iteration " + num_iter);
   }
 
   private boolean should_terminate(int num_iter) {
@@ -91,7 +88,7 @@ public class ACO {
     }
   }
 
-  private void move(Ant[] colony){
+  private void move_aco(Ant[] colony){
     for(int i = 0; i < num_ants; i++){
       colony[i].complete_tour();
       colony[i].evaporate_and_update_pheremone_level(this.epsilon);
@@ -105,7 +102,7 @@ public class ACO {
       old_p = e.getPheremone_level();
       new_p = old_p * (1 - evaporation_rate);
       e.setPheremone_level(new_p);
-      //System.out.println(new_p);
+
     }
   }
 
