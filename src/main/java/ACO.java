@@ -5,21 +5,23 @@ public class ACO {
   Ant[] colony;
   int num_ants;
   int num_iter;
-  double phi;
+  double alpha;
   double beta;
   double evaporation_rate;
   Ant best;
+  double epsilon;
 
-  ACO(TSP problem, int num_ants, int num_iter, double phi, double beta, double evaporation_rate){
+  ACO(TSP problem, int num_ants, int num_iter, double alpha, double beta, double evaporation_rate, double epsilon){
     colony = new Ant[num_ants];
     this.problem  = problem;
     this.num_ants = num_ants;
     create_colony(num_ants, problem);
     this.num_iter = num_iter;
-    this.phi = phi;
+    this.alpha = alpha;
     this.beta = beta;
     this.best = new Ant(problem);
     this.evaporation_rate = evaporation_rate;
+    this.epsilon = epsilon;
 
   };
 
@@ -48,12 +50,14 @@ public class ACO {
   private void create_colony(int num_ants, TSP problem){
     for(int i = 0; i < num_ants; i++){
       colony[i] = new Ant(problem);
+
     }
   }
 
   private void move(Ant[] colony){
     for(int i = 0; i < num_ants; i++){
       colony[i].complete_tour();
+      colony[i].evaporate_and_update_pheremone_level(this.epsilon);
     }
   }
 

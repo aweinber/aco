@@ -42,7 +42,7 @@ public class Test{
             problem = new TSP("ulysses16.tsp", num_ants);
 
             System.out.println("\nACO alogrithm");
-            ACO aco = new ACO(problem, num_ants, num_iterations, alpha, beta, evaporation_factor);
+            ACO aco = new ACO(problem, num_ants, num_iterations, alpha, beta, evaporation_factor, epsilon);
             aco.execute_aco();
 
             System.out.println("Best length: " + aco.get_best_length());
@@ -51,7 +51,7 @@ public class Test{
     }
 
     public static void test_ant_construct_dictionary_method(int num_ants) {
-        TSP problem = new TSP("prl124.tsp", num_ants);
+        TSP problem = new TSP("ulysses16.tsp", num_ants);
         Ant ant = new Ant(problem);
 
         City city1 = new City(1.0, 1.0, 1);

@@ -5,20 +5,20 @@ public class EAS {
   Ant[] colony;
   int num_ants;
   int num_iter;
-  double phi;
+  double alpha;
   double beta;
   double evaporation_rate;
   Ant best;
   double elitism;
 
 
-  EAS(TSP problem, int num_ants, int num_iter, double phi, double beta, double evaporation_rate, double elitism){
+  EAS(TSP problem, int num_ants, int num_iter, double alpha, double beta, double evaporation_rate, double elitism){
     colony = new Ant[num_ants];
     this.problem  = problem;
     this.num_ants = num_ants;
     create_colony(num_ants, problem);
     this.num_iter = num_iter;
-    this.phi = phi;
+    this.alpha = alpha;
     this.beta = beta;
     this.best = new Ant(problem);
     this.evaporation_rate = evaporation_rate;
@@ -40,13 +40,11 @@ public class EAS {
           this.best.set_tour(colony[x].tour);
         }
         colony[x].update_pheremone_level();
-
       }
 
       System.out.println("Best tour so far: " + this.best.get_tour_length());
       update_best_found_so_far_phermone(elitism);
 
-     
     }
   }
 

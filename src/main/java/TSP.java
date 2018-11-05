@@ -172,6 +172,7 @@ public class TSP {
 
         for(Edge e: edges){
             e.pheremone_level = phermone_rate;
+            e.initial_phermone = phermone_rate;
         }
 
     }

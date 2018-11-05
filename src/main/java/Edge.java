@@ -7,6 +7,7 @@ public class Edge{
     double pheremone_level;
     public int city_one_index;
     public int city_two_index;
+    public double initial_phermone;
 
     public Edge(City city_one, City city_two){
         this.city_one = city_one;

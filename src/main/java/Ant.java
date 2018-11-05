@@ -203,14 +203,23 @@ public class Ant {
     }
 
 
-    /**
+    /*
      * Update pheremone levels for every edge in the tour
      */
     public void update_pheremone_level() {
         for (Edge e : tour) {
             double old_p, new_p;
             old_p = e.getPheremone_level();
-            new_p = old_p + (PHEREMONE_UPDATE_NUMERATOR / e.length);
+            new_p = old_p + (1 / e.length);
+            e.setPheremone_level(new_p);
+        }
+    }
+
+    public void evaporate_and_update_pheremone_level(double epsilon) {
+        for (Edge e: tour) {
+            double old_p, new_p;
+            old_p = e.getPheremone_level();
+            new_p = ((1 - epsilon)*old_p) + (epsilon*e.initial_phermone);
             e.setPheremone_level(new_p);
         }
     }
