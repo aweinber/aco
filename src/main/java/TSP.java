@@ -21,8 +21,10 @@ public class TSP {
         cities = new ArrayList<City>();
         cities = read_cities(filename);
         edges = create_edges(cities);
-        remaining_edges = get_Edges();
+        //remaining_edges = get_Edges();
+        System.out.println(edges.size());
         set_pheremone_initial(num_ants, cities);
+
     }
 
     /*  creates all of from each city to each other city so that function will */
@@ -226,7 +228,6 @@ public class TSP {
             //while there are still lines in the file
             while (line != null) {
                 if (line.length() > 0) {
-                    System.out.println(line);
                     if (line.contains("EDGE_WEIGHT_TYPE: EXPLICIT")) {
                          edges = read_upper_row(fileName);
                     }
@@ -315,7 +316,6 @@ public class TSP {
                         line = line.replaceAll("  ", " ");
 
                         //split line by space
-                        System.out.println(line);
                         String array1[] = line.split(" ");
                         double x_cord = Double.parseDouble(array1[1]);
                         double y_cord = Double.parseDouble(array1[2]);
@@ -332,7 +332,6 @@ public class TSP {
             System.out.print("error " + e);
             //e.printStackTrace();
         }
-        edges = create_edges(cities);
         return cities;
 
     }
@@ -340,7 +339,7 @@ public class TSP {
 
 
     public ArrayList<Edge> get_Edges() {
-        return edges;
+        return this.edges;
     }
 
     public void setEdges(ArrayList<Edge> edges) {
