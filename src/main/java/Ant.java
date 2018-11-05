@@ -26,7 +26,7 @@ public class Ant {
         this.beta_weight = .5;
     }
 
-    public Ant(ArrayList<Edge> tour, double tour_length, TSP problem, double alpha_weight, double beta_weight) {
+    public Ant(TSP problem, double alpha_weight, double beta_weight) {
         this.tour = tour;
         this.tour_length = tour_length;
         this.problem = problem;

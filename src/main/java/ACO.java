@@ -23,19 +23,19 @@ public class ACO {
   private int termination_condition;
 
 
-  ACO(TSP problem, int num_ants, int max_iterations, double phi, double beta, double evaporation_rate, double epsilon, int termination_condition){
+  ACO(TSP problem, int num_ants, int max_iterations, double alpha, double beta, double evaporation_rate, double epsilon, int termination_condition){
     colony = new Ant[num_ants];
     this.problem  = problem;
     this.num_ants = num_ants;
-    create_colony(num_ants, problem);
+    create_colony();
     this.max_iterations = max_iterations;
     this.alpha = alpha;
     this.beta = beta;
-    this.best = new Ant(problem);
+    this.best = new Ant(this.problem, this.alpha, this.beta);
     this.evaporation_rate = evaporation_rate;
     this.termination_condition = termination_condition;
     this.epsilon = epsilon;
-  }
+  };
 
   public void execute_aco() {
 
@@ -55,7 +55,6 @@ public class ACO {
         }
       }
 
-//      System.out.println("Best tour so far: " + this.best.get_tour_length());
       update_best_found_so_far_phermone(evaporation_rate);
 
       num_iter++;
@@ -85,9 +84,9 @@ public class ACO {
     return ((best.get_tour_length() - problem.optimal / problem.optimal) * 100) < percentage_from_optimal;
   }
 
-  private void create_colony(int num_ants, TSP problem){
-    for(int i = 0; i < num_ants; i++){
-      colony[i] = new Ant(problem);
+  private void create_colony(){
+    for(int i = 0; i < this.num_ants; i++){
+      colony[i] = new Ant(this.problem, this.alpha, this.beta);
 
     }
   }
