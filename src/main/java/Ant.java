@@ -14,6 +14,7 @@ public class Ant {
 
     double probability_select_best_leg = .2;
 
+    private static final double PHEREMONE_UPDATE_NUMERATOR = 1;
 
 
     Ant(TSP problem){
@@ -52,7 +53,6 @@ public class Ant {
         int random_index = (int) (Math.random() * all_cities_list.size());
 
         City first_city = all_cities_list.get(random_index);
-
         City current_city = first_city;
 
         remaining_cities.remove(current_city);
@@ -83,10 +83,15 @@ public class Ant {
 
         }
 
-        Edge e = new Edge(current_city, first_city);
-        tour.add(e);
+		Edge e = new Edge(current_city, first_city);
+		tour.add(e);
+
+
+
 
         get_tour_length();
+
+
 
     }
 
@@ -194,8 +199,8 @@ public class Ant {
     }
 
 
-    /**
-     * EAS done after every iteration in algorithm
+    /*
+     * Update pheremone levels for every edge in the tour
      */
     public void update_pheremone_level() {
         for (Edge e : tour) {
@@ -206,9 +211,6 @@ public class Ant {
         }
     }
 
-    /**
-     * After every ant's tour in ACO in every iteration of algorithm
-     */
     public void evaporate_and_update_pheremone_level(double epsilon) {
         for (Edge e: tour) {
             double old_p, new_p;

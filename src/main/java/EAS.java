@@ -26,11 +26,11 @@ public class EAS {
     colony = new Ant[num_ants];
     this.problem  = problem;
     this.num_ants = num_ants;
-    create_colony(num_ants, problem);
     this.alpha = alpha;
     this.max_iterations = max_iterations;
     this.beta = beta;
-    this.best = new Ant(problem);
+    create_colony();
+    this.best = new Ant(this.problem, this.alpha, this.beta);
     this.evaporation_rate = evaporation_rate;
     this.termination_condition = termination_condition;
 
@@ -54,7 +54,6 @@ public class EAS {
         colony[x].update_pheremone_level();
       }
 
-//      System.out.println("Best tour so far: " + this.best.get_tour_length());
       update_best_found_so_far_phermone(elitism);
       num_iter++;
     }
@@ -82,9 +81,9 @@ public class EAS {
     return ((best.get_tour_length() - problem.optimal / problem.optimal) * 100) < percentage_from_optimal;
   }
 
-  private void create_colony(int num_ants, TSP problem){
-    for(int i = 0; i < num_ants; i++){
-      colony[i] = new Ant(problem);
+  private void create_colony(){
+    for(int i = 0; i < this.num_ants; i++){
+      colony[i] = new Ant(this.problem, this.alpha, this.beta);
     }
   }
 
