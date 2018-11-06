@@ -1,14 +1,10 @@
 import java.util.*;
 
-public class ACO {
-  TSP problem;
-  Ant[] colony;
-  int num_ants;
-  double alpha;
-  double beta;
-  double evaporation_rate;
-  Ant best;
-  double epsilon;
+public class ACO extends AntSystem{
+
+  private double evaporation_rate;
+  private Ant best;
+  private double epsilon;
 
 
   int max_iterations = 100;
@@ -24,27 +20,22 @@ public class ACO {
 
 
   ACO(TSP problem, int num_ants, int max_iterations, double alpha, double beta, double evaporation_rate, double epsilon, int termination_condition){
-    colony = new Ant[num_ants];
-    this.problem  = problem;
-    this.num_ants = num_ants;
-    this.max_iterations = max_iterations;
-    this.alpha = alpha;
-    this.beta = beta;
+    super(problem, num_ants, alpha, beta, max_iterations, termination_condition);
     this.best = new Ant(this.problem, this.alpha, this.beta);
     this.evaporation_rate = evaporation_rate;
     this.termination_condition = termination_condition;
     this.epsilon = epsilon;
-    create_colony();
+    super.create_colony();
   }
 
   public void execute_aco() {
 
     int num_iter = 0;
 
-    while (!should_terminate(num_iter)) {
+    while (!super.should_terminate(num_iter)) {
 
       move_aco(colony);
-      pheremone_evaporation(evaporation_rate);
+      super.pheremone_evaporation(evaporation_rate);
 
       for(int x = 0; x < this.num_ants; x++){
         if(x == 0 && num_iter == 0){
@@ -55,38 +46,11 @@ public class ACO {
         }
       }
 
-      update_best_found_so_far_phermone(evaporation_rate);
+      update_best_found_so_far_pheromone(evaporation_rate);
       num_iter++;
     }
   }
 
-  private boolean should_terminate(int num_iter) {
-    if (termination_condition == TERMINATE_AT_FIRST_CONDITION) {
-      return should_terminate_from_max_iterations(num_iter) || should_terminate_from_close_to_optimal();
-    }
-    else if (termination_condition == TERMINATE_AT_PERCENTAGE_FROM_OPTIMAL) {
-      return should_terminate_from_close_to_optimal();
-    }
-    else if (termination_condition == TERMINATE_AT_NUM_ITER) {
-      return should_terminate_from_max_iterations(num_iter);
-    }
-    return false;
-  }
-
-  private boolean should_terminate_from_max_iterations(int num_iter) {
-    return num_iter >= max_iterations;
-  }
-
-  private boolean should_terminate_from_close_to_optimal() {
-    return ((best.get_tour_length() - problem.optimal / problem.optimal) * 100) < percentage_from_optimal;
-  }
-
-  private void create_colony(){
-    for(int i = 0; i < this.num_ants; i++){
-      colony[i] = new Ant(this.problem, this.alpha, this.beta);
-
-    }
-  }
 
   private void move_aco(Ant[] colony){
     for(int i = 0; i < num_ants; i++){
@@ -95,22 +59,12 @@ public class ACO {
     }
   }
 
-  private void pheremone_evaporation(double evaporation_rate){
-    ArrayList<Edge> edges = new ArrayList<Edge>(problem.get_edges());
-    for(Edge e: edges){
-      double old_p, new_p;
-      old_p = e.getPheremone_level();
-      new_p = old_p * (1 - evaporation_rate);
-      e.setPheremone_level(new_p);
-
-    }
-  }
-
-  private void update_best_found_so_far_phermone(double evaporation_rate){
+  protected void update_best_found_so_far_pheromone(double evaporation_rate){
+    double best_length = best.get_tour_length();
     for(Edge e: best.tour){
       double old_p, new_p;
       old_p = e.getPheremone_level();
-      new_p = old_p + evaporation_rate/best.get_tour_length();;
+      new_p = old_p + (evaporation_rate/ best_length);
       e.setPheremone_level(new_p);
     }
   }
