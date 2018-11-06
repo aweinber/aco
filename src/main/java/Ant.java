@@ -203,10 +203,11 @@ public class Ant {
      * Update pheremone levels for every edge in the tour
      */
     public void update_pheremone_level() {
+        double tour_length = get_tour_length();
         for (Edge e : tour) {
             double old_p, new_p;
             old_p = e.getPheremone_level();
-            new_p = old_p + (1 / e.length);
+            new_p = old_p + (1 / tour_length);
             e.setPheremone_level(new_p);
         }
     }
