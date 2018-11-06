@@ -13,17 +13,17 @@ public class Test{
 
     public static void main(String[] args) {
 
-        if(args.length > 0) {
-            num_ants = Integer.parseInt(args[1]);
-            max_iterations = Integer.parseInt(args[2]);
-            alpha = Double.parseDouble(args[3]);
-            beta = Double.parseDouble(args[4]);
-            evaporation_factor = Double.parseDouble(args[5]);
-            elitism_factor = Integer.parseInt(args[6]);
-            epsilon = Double.parseDouble(args[7]);
-        }
+//        if(args.length > 0) {
+////            num_ants = Integer.parseInt(args[1]);
+////            max_iterations = Integer.parseInt(args[2]);
+////            alpha = Double.parseDouble(args[3]);
+////            beta = Double.parseDouble(args[4]);
+////            evaporation_factor = Double.parseDouble(args[5]);
+////            elitism_factor = Integer.parseInt(args[6]);
+////            epsilon = Double.parseDouble(args[7]);
+////        }
 
-        else{
+
 
             num_ants = 20;
             max_iterations = 500;
@@ -33,27 +33,6 @@ public class Test{
             elitism_factor = num_ants;
             epsilon = 0.1;
             testing();
-
-//            TSP problem = new TSP("eil51.tsp", num_ants ,426.0);
-//
-//            int termination_condition = 3;
-//
-//
-//            EAS eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition);
-//            eas.execute_eas();
-//            System.out.println("EAS best: " + eas.get_best_length());
-//
-//
-//            problem = new TSP("eil51.tsp", num_ants, 426.0);
-//
-//            System.out.println("ACO alogrithm");
-//            ACO aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition);
-//            aco.execute_aco();
-//
-//            System.out.println("Best length: " + aco.get_best_length());
-
-
-        }
     }
 
     public static void testing(){
@@ -69,6 +48,9 @@ public class Test{
         double dnum_ants = num_ants;
         double[] elitism_factor_changes = {dnum_ants/4, dnum_ants/2, dnum_ants, dnum_ants*2, dnum_ants*4};
         double[] epsilon_changes = {0, .001, .1, .25, .5, .1};
+        System.out.println("----------------------------------------------");
+        System.out.println("Running alpha changes");
+        System.out.println("----------------------------------------------");
 
         for(int i = 0; i < alpha_changes.length; i++){
             double avg_time = 0;
@@ -76,9 +58,6 @@ public class Test{
             double avg_best_length = 0;
             for(int j = 0; j < 10; j++) {
 
-                System.out.println("----------------------------------------------");
-                System.out.println("Running alpha changes");
-                System.out.println("----------------------------------------------");
 
                 TSP problem = new TSP("eil51.tsp", num_ants, 426.0);
                 int termination_condition = 3;
@@ -100,6 +79,11 @@ public class Test{
             System.out.println();
 
         }
+
+        System.out.println("----------------------------------------------");
+        System.out.println("Running beta changes");
+        System.out.println("----------------------------------------------");
+
         for (int i = 0; i < beta_changes.length; i++) {
             double avg_time = 0;
             double avg_best_iterations = 0;
@@ -130,15 +114,16 @@ public class Test{
             System.out.println("EAS best length average over 10 iterations: " + avg_best_length/10);
             System.out.println();
         }
+
+        System.out.println("----------------------------------------------");
+        System.out.println("Elitism changes");
+        System.out.println("----------------------------------------------");
+
         for (int i = 0; i < elitism_factor_changes.length; i++) {
             double avg_time = 0;
             double avg_best_iterations = 0;
             double avg_best_length = 0;
             for(int j = 0; j < 10; j++) {
-
-                System.out.println("----------------------------------------------");
-                System.out.println("Elitism changes");
-                System.out.println("----------------------------------------------");
 
                 TSP problem = new TSP("eil51.tsp", num_ants, 426.0);
                 int termination_condition = 3;
@@ -168,16 +153,18 @@ public class Test{
         System.out.println("----------------------------------------------");
         System.out.println("----------------------------------------------");
 
+        System.out.println();
+        System.out.println();
+
+        System.out.println("----------------------------------------------");
+        System.out.println("Running alpha changes");
+        System.out.println("----------------------------------------------");
 
         for(int i = 0; i < alpha_changes.length; i++){
             double avg_time = 0;
             double avg_best_iterations = 0;
             double avg_best_length = 0;
             for(int j = 0; j < 10; j++) {
-
-                System.out.println("----------------------------------------------");
-                System.out.println("Running alpha changes");
-                System.out.println("----------------------------------------------");
 
                 TSP problem = new TSP("eil51.tsp", num_ants, 426.0);
                 int termination_condition = 3;
@@ -202,15 +189,14 @@ public class Test{
 
 
         }
-
+        System.out.println("----------------------------------------------");
+        System.out.println("Running beta changes");
+        System.out.println("----------------------------------------------");
         for(int i = 0; i < beta_changes.length; i++){
             double avg_time = 0;
             double avg_best_iterations = 0;
             double avg_best_length = 0;
             for(int j = 0; j < 10; j++) {
-                System.out.println("----------------------------------------------");
-                System.out.println("Running beta changes");
-                System.out.println("----------------------------------------------");
 
                 TSP problem = new TSP("eil51.tsp", num_ants, 426.0);
                 int termination_condition = 3;
@@ -236,6 +222,11 @@ public class Test{
 
         }
 
+        System.out.println("----------------------------------------------");
+        System.out.println("Epsilon changes");
+        System.out.println("----------------------------------------------");
+
+
         for(int i = 0; i < epsilon_changes.length; i++){
             double avg_time = 0;
             double avg_best_iterations = 0;
@@ -243,9 +234,6 @@ public class Test{
             
             for(int j = 0; j < 10; j++) {
 
-                System.out.println("----------------------------------------------");
-                System.out.println("Epsilon changes");
-                System.out.println("----------------------------------------------");
 
                 TSP problem = new TSP("eil51.tsp", num_ants, 426.0);
                 int termination_condition = 3;
@@ -271,7 +259,6 @@ public class Test{
         }
 
     }
-
 
 
 
