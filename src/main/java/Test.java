@@ -33,7 +33,7 @@ public class Test{
             elitism_factor = num_ants;
             epsilon = 0.1;
 
-            TSP problem = new TSP("pr124.tsp", num_ants);
+            TSP problem = new TSP("eil51.tsp", num_ants);
 
 
             EAS eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, 1);
@@ -41,7 +41,7 @@ public class Test{
             System.out.println("EAS best: " + eas.get_best_length());
 
 
-            problem = new TSP("pr124.tsp", num_ants);
+            problem = new TSP("eil51.tsp", num_ants);
 
             System.out.println("\nACO alogrithm");
             ACO aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, 1);
