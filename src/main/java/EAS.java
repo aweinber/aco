@@ -4,6 +4,7 @@ public class EAS extends AntSystem{
 
   private double evaporation_rate;
   private double elitism;
+  public int best_iter= 0;
 
 
   EAS(TSP problem, int num_ants, int max_iterations, double alpha, double beta, double evaporation_rate, double elitism, int termination_condition){
@@ -33,6 +34,7 @@ public class EAS extends AntSystem{
         else if(colony[x].get_tour_length() < best.get_tour_length()){
 
           super.best.set_tour(colony[x].tour);
+          best_iter = num_iter;
         }
         colony[x].update_pheromone_level();
       }

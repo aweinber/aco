@@ -4,6 +4,7 @@ public class ACO extends AntSystem{
 
   private double evaporation_rate;
   private double epsilon;
+  int best_iter = 0;
 
 
 
@@ -18,6 +19,7 @@ public class ACO extends AntSystem{
 
     super.best = new Ant(this.problem, this.alpha, this.beta);
     super.best.tour = new ArrayList<Edge>();
+
   }
 
   /**
@@ -38,6 +40,7 @@ public class ACO extends AntSystem{
         }
         else if(colony[x].get_tour_length() < best.get_tour_length()){
           super.best.set_tour(colony[x].tour);
+          best_iter = num_iter;
         }
       }
 

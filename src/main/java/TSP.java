@@ -24,7 +24,6 @@ public class TSP {
         edges = create_edges(cities);
         optimal = optimal;
         //remaining_edges = get_Edges();
-        System.out.println("Num edges: " + edges.size());
         set_pheremone_initial(num_ants, cities);
 
     }
@@ -178,7 +177,6 @@ public class TSP {
             e.initial_phermone = phermone_rate;
         }
 
-        System.out.println(phermone_rate);
 
     }
 
@@ -244,7 +242,6 @@ public class TSP {
             System.out.print("error " + e);
             //e.printStackTrace();
         }
-        System.out.println("this is cities size" + cities.size());
         return cities;
     }
 
@@ -334,7 +331,6 @@ public class TSP {
             System.out.print("error " + e);
             //e.printStackTrace();
         }
-        System.out.println("this is num cities" + cities.size());
         return cities;
 
     }
