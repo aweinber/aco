@@ -4,6 +4,9 @@ public class ACO extends AntSystem{
   private double epsilon;
 
 
+
+
+
   ACO(TSP problem, int num_ants, int max_iterations, double alpha, double beta, double evaporation_rate, double epsilon, int termination_condition){
     super(problem, num_ants, alpha, beta, max_iterations, termination_condition);
 
