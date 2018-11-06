@@ -13,7 +13,7 @@ public class EAS extends AntSystem{
     this.evaporation_rate = evaporation_rate;
 
     super.best = new Ant(this.problem, this.alpha, this.beta);
-
+    super.best.tour = new ArrayList<Edge>();
   }
 
 
@@ -34,7 +34,7 @@ public class EAS extends AntSystem{
 
           super.best.set_tour(colony[x].tour);
         }
-        colony[x].update_pheremone_level();
+        colony[x].update_pheromone_level();
       }
 
       update_best_found_so_far_pheromone(elitism);

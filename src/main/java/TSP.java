@@ -18,10 +18,11 @@ public class TSP {
     /*
         Initial contructor for the TSP file
      */
-    public TSP(String filename, int num_ants) {
+    public TSP(String filename, int num_ants, double optimal) {
         cities = new ArrayList<City>();
         cities = read_euc2D(filename);
         edges = create_edges(cities);
+        optimal = optimal;
         //remaining_edges = get_Edges();
         System.out.println("Num edges: " + edges.size());
         set_pheremone_initial(num_ants, cities);

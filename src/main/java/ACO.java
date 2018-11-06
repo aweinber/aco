@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ACO extends AntSystem{
 
   private double evaporation_rate;
@@ -15,6 +17,7 @@ public class ACO extends AntSystem{
     super.create_colony();
 
     super.best = new Ant(this.problem, this.alpha, this.beta);
+    super.best.tour = new ArrayList<Edge>();
   }
 
   /**

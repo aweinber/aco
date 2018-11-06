@@ -33,9 +33,9 @@ public class Test{
             elitism_factor = num_ants;
             epsilon = 0.1;
 
-            int termination_condition = 3;
+            TSP problem = new TSP("eil51.tsp", num_ants ,426.0);
 
-            TSP problem = new TSP("eil51.tsp", num_ants, 426.0);
+            int termination_condition = 3;
 
 
             EAS eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition);
@@ -45,7 +45,7 @@ public class Test{
 
             problem = new TSP("eil51.tsp", num_ants, 426.0);
 
-            System.out.println("\nACO alogrithm");
+            System.out.println("ACO alogrithm");
             ACO aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition);
             aco.execute_aco();
 
