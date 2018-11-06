@@ -12,7 +12,7 @@ public class AntSystem {
 	int max_iterations = 100;
 
 
-	double percentage_from_optimal = 20;
+	double min_percent_above_optimal = 20;
 
 	private static final int TERMINATE_AT_NUM_ITER = 1;
 	private static final int TERMINATE_AT_PERCENTAGE_FROM_OPTIMAL = 2;
@@ -28,6 +28,8 @@ public class AntSystem {
 		this.beta = beta;
 		this.max_iterations = max_iterations;
 		this.termination_condition = termination_condition;
+
+
 	}
 
 	protected void create_colony(){
@@ -54,11 +56,19 @@ public class AntSystem {
 	}
 
 	private boolean should_terminate_from_close_to_optimal() {
-		return ((best.get_tour_length() - problem.optimal / problem.optimal) * 100) < percentage_from_optimal;
+		if (best.tour == null) {
+			return false;
+		}
+		double percentage_above_optimal = ((best.get_tour_length() - problem.optimal) / problem.optimal) * 100.0;
+		return percentage_above_optimal < min_percent_above_optimal;
 	}
 
 
-	protected void pheremone_evaporation(double evaporation_rate){
+	/**
+	 * For every edge in the problem, apply evaporation formula
+	 * @param evaporation_rate rate at which evaporation occurs
+	 */
+	void pheromone_evaporation(double evaporation_rate){
 		ArrayList<Edge> edges = new ArrayList<Edge>(problem.get_edges());
 		for(Edge e: edges){
 			double old_p, new_p;
@@ -68,6 +78,7 @@ public class AntSystem {
 
 		}
 	}
+
 
 
 
