@@ -5,26 +5,32 @@ import java.util.List;
 
 public class Ant {
 
+    /**
+     * TSP problem which this ant must solve
+     */
+    private TSP problem;
+
+    /**
+     * Tour by which ant completes TSP
+     */
     ArrayList<Edge> tour;
-    private double tour_length;
-    TSP problem;
 
-    double alpha_weight;
-    double beta_weight;
+    /**
+     * Weight given to the pheromone heuristic
+     */
+    private double alpha_weight;
 
-    double probability_select_best_leg = .2;
+    /**
+     * Weight given to the distance heuristic
+     */
+    private double beta_weight;
 
-    private static final double PHEREMONE_UPDATE_NUMERATOR = 1;
+    /**
+     * The probability that we choose the 'most likely' leg without
+     * even considering the others at a given stop along the tour.
+     */
+    private static final double PROBABILITY_SELECT_BEST_LEG = .2;
 
-
-//    Ant(TSP problem){
-//
-//        this.problem = problem;
-//        tour = new ArrayList<Edge>();
-//
-//        this.alpha_weight = 1;
-//        this.beta_weight = 2;
-//    }
 
     public Ant(TSP problem, double alpha_weight, double beta_weight) {
         this.problem = problem;
@@ -33,14 +39,13 @@ public class Ant {
     }
 
 
-
     /**
      * Complete a tour. Create a set of cities and edges, then pick a random city to start with.
      * While there are remaining cities in the set of cities, find all available edges from the current city,
      * randomly pick one based on the probability sets that are mapped in available_edges, then remove the
      * destination city from the list of available cities and recompute available edges from the next one.
      */
-    public void complete_tour() {
+    void complete_tour() {
 
         tour = new ArrayList<Edge>();
 
@@ -60,8 +65,6 @@ public class Ant {
         HashMap<Edge, Double> available_edges;
         Edge next_edge;
         City next_city;
-
-
 
         while (remaining_cities.size() > 0) {
 
@@ -83,16 +86,11 @@ public class Ant {
 
         }
 
+        //return home
 		Edge e = new Edge(current_city, first_city);
 		tour.add(e);
 
-
-
-
         get_tour_length();
-
-
-
     }
 
     /**
@@ -135,7 +133,7 @@ public class Ant {
         double current_floor = 0.0;
 
 
-        if (probability_best_leg < probability_select_best_leg) {
+        if (probability_best_leg < PROBABILITY_SELECT_BEST_LEG) {
 
             double max_probability = -1;
             Edge most_likely_edge = available_edges_to_probability.keySet().iterator().next(); //first one
@@ -158,8 +156,7 @@ public class Ant {
                 return e;
             }
         }
-
-        System.out.println("About to return null. Current floor: " + current_floor + ", probability: " + probability_select_any_num);
+        System.out.println("About to return null. Error. Current floor: " + current_floor + ", probability: " + probability_select_any_num);
         return null;
     }
 
@@ -185,7 +182,6 @@ public class Ant {
             edge_probability = calculate_edge_probability(e) / heuristic_sum;
             available_edges_to_probability.put(e, edge_probability);
         }
-//        System.out.println("Edge probability sum: " + edge_probability_sum);
         return available_edges_to_probability;
     }
 
@@ -193,13 +189,17 @@ public class Ant {
         return (Math.pow(e.getPheremone_level(), alpha_weight) * Math.pow((1/ e.length), beta_weight));
     }
 
+    /**
+     * Given a tour, set the ant's tour to be the parameter
+     * @param tour
+     */
     public void set_tour(ArrayList<Edge> tour){
         this.tour = new ArrayList<Edge>(tour.size());
         for (Edge item : tour) this.tour.add(item);
     }
 
 
-    /*
+    /**
      * Update pheremone levels for every edge in the tour
      */
     public void update_pheromone_level() {
@@ -212,7 +212,11 @@ public class Ant {
         }
     }
 
-    public void evaporate_and_update_pheromone_level(double epsilon) {
+    /**
+     * Push pheromone level back toward initial
+     * @param epsilon degree to which pheromone level returns home
+     */
+    void evaporate_and_update_pheromone_level(double epsilon) {
         for (Edge e: tour) {
             double old_p, new_p;
             old_p = e.getPheremone_level();
@@ -225,12 +229,11 @@ public class Ant {
     /**
      * Compute the distance of any given tour
      */
-    public double get_tour_length() {
+    double get_tour_length() {
         double counter = 0;
         for (Edge e : tour) {
             counter += e.length;
         }
-        this.tour_length = counter;
         return counter;
     }
 }
