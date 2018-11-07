@@ -9,7 +9,9 @@ public class ACO extends AntSystem{
 
 
 
-
+  /**
+   * Initializes the ACO problem.
+  */ 
   ACO(TSP problem, int num_ants, int max_iterations, double alpha, double beta, double evaporation_rate, double epsilon, int termination_condition){
     super(problem, num_ants, alpha, beta, max_iterations, termination_condition);
 
@@ -20,7 +22,7 @@ public class ACO extends AntSystem{
     super.best = new Ant(this.problem, this.alpha, this.beta);
     super.best.tour = new ArrayList<Edge>();
 
-  }
+  };
 
   /**
    * Walk through steps of aco -- while termination condition is not met,
@@ -74,7 +76,9 @@ public class ACO extends AntSystem{
     }
   }
 
-
+  /**
+   * @return best length
+   */
   public double get_best_length(){
     return best.get_tour_length();
   }

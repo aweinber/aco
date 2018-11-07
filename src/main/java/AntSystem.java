@@ -32,6 +32,10 @@ public class AntSystem {
 
 	}
 
+	/**
+	 * Creates a colony of ants based on the number of ants, alpha
+	 * and beta parameters already set.
+	 */
 	protected void create_colony(){
 		for(int i = 0; i < this.num_ants; i++){
 			colony[i] = new Ant(this.problem, this.alpha, this.beta);

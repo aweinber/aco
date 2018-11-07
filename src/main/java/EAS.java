@@ -6,7 +6,9 @@ public class EAS extends AntSystem{
   private double elitism;
   public int best_iter= 0;
 
-
+  /**
+   * Initializes the EAS problem.
+  */ 
   EAS(TSP problem, int num_ants, int max_iterations, double alpha, double beta, double evaporation_rate, double elitism, int termination_condition){
     super(problem, num_ants, alpha, beta, max_iterations, termination_condition);
     super.create_colony();
@@ -15,9 +17,12 @@ public class EAS extends AntSystem{
 
     super.best = new Ant(this.problem, this.alpha, this.beta);
     super.best.tour = new ArrayList<Edge>();
-  }
+  };
 
-
+  /**
+   * Walk through steps of eco -- while termination condition is not met,
+   * move the colony, update pheromones, and set a new best tour if one is found.
+   */
   void execute_eas() {
 
     int num_iter = 0;
