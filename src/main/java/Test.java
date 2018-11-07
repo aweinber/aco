@@ -42,7 +42,7 @@ public class Test{
         int termination_condition = 3;
         EAS eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition);
         long actual_start_time = System.nanoTime();
-        eas.execute_eas(endTime);
+        eas.execute_eas();
         long actual_end_time = System.nanoTime();
         long duration = (actual_end_time - actual_start_time) / TO_SECONDS;
         System.out.println("filename is dl2103.tsp");
@@ -60,7 +60,7 @@ public class Test{
         termination_condition = 3;
         eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition);
         actual_start_time = System.nanoTime();
-        eas.execute_eas(endTime);
+        eas.execute_eas();
         actual_end_time = System.nanoTime();
         duration = (actual_end_time - actual_start_time) / TO_SECONDS;
         System.out.println("filename is pcb3038.tsp");
@@ -78,7 +78,7 @@ public class Test{
         termination_condition = 3;
         eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition);
         actual_start_time = System.nanoTime();
-        eas.execute_eas(endTime);
+        eas.execute_eas();
         actual_end_time = System.nanoTime();
         duration = (actual_end_time - actual_start_time) / TO_SECONDS;
         System.out.println("filename is rl5915.tsp");
@@ -109,7 +109,7 @@ public class Test{
         int termination_condition = 3;
         ACO aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition);
         long actual_startTime = System.nanoTime();
-        aco.execute_aco(endTime);
+        aco.execute_aco();
         long actual_endTime = System.nanoTime();
         long duration = (actual_endTime - actual_startTime) / TO_SECONDS;
         System.out.println("filename is dl2103.tsp");
@@ -128,7 +128,7 @@ public class Test{
         termination_condition = 3;
         aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition);
         actual_startTime = System.nanoTime();
-        aco.execute_aco(endTime);
+        aco.execute_aco();
         actual_endTime = System.nanoTime();
         duration = (actual_endTime - actual_startTime) / TO_SECONDS;
         System.out.println("filename is pcb3038.tsp");
@@ -147,7 +147,7 @@ public class Test{
         termination_condition = 3;
         aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition);
         actual_startTime = System.nanoTime();
-        aco.execute_aco(endTime);
+        aco.execute_aco();
         actual_endTime = System.nanoTime();
         duration = (actual_endTime - actual_startTime) / TO_SECONDS;
         System.out.println("filename is rl5915.tsp");
