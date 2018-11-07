@@ -93,8 +93,8 @@ public class Test{
 
     public static void big_test_ACO(){
         System.out.println("this is aco test");
-        num_ants = 30;
-        max_iterations = 500;
+        num_ants = 20;
+        max_iterations = 30;
         alpha = 1;
         beta = 2;
         evaporation_factor = 0.1;
