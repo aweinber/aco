@@ -20,7 +20,8 @@ public class Test{
             evaporation_factor = 0.1;
             elitism_factor = num_ants;
             epsilon = 0.1;
-            bigTestEAS();
+            //igTestEAS();
+            big_test_ACO();
     }
 
     public static void bigTestEAS(){
@@ -83,6 +84,7 @@ public class Test{
     }
 
     public static void big_test_ACO(){
+        System.out.println("this is aco test");
         num_ants = 30;
         max_iterations = 500;
         alpha = 1;
