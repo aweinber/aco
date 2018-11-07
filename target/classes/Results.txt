@@ -1,0 +1,656 @@
+----------------------------------------------
+Running alpha changes
+----------------------------------------------
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Average time take to execute eas:  1.123643395E8
+Eas with this variable for alpha:  0.0
+avg iteration where max was found:  218.0
+EAS best length average over 10 iterations: 624.6852230127893
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Average time take to execute eas:  1.070310636E8
+Eas with this variable for alpha:  0.25
+avg iteration where max was found:  268.3
+EAS best length average over 10 iterations: 534.863775235274
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Average time take to execute eas:  1.126335067E8
+Eas with this variable for alpha:  0.5
+avg iteration where max was found:  297.8
+EAS best length average over 10 iterations: 473.3747276743954
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Average time take to execute eas:  1.215818209E8
+Eas with this variable for alpha:  1.0
+avg iteration where max was found:  178.4
+EAS best length average over 10 iterations: 438.30522592975484
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Average time take to execute eas:  1.135657333E8
+Eas with this variable for alpha:  2.0
+avg iteration where max was found:  63.8
+EAS best length average over 10 iterations: 459.9834741633974
+
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+Average time take to execute eas:  1.234426277E8
+Eas with this variable for alpha:  0.0
+avg iteration where max was found:  492.5
+EAS best length average over 10 iterations: 628.5811691149606
+
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+Average time take to execute eas:  1.23292155E8
+Eas with this variable for alpha:  2.0
+avg iteration where max was found:  173.6
+EAS best length average over 10 iterations: 437.92007687365304
+
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+Average time take to execute eas:  1.310179657E8
+Eas with this variable for alpha:  4.0
+avg iteration where max was found:  310.1
+EAS best length average over 10 iterations: 436.97829793421306
+
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+Average time take to execute eas:  1.256360929E8
+Eas with this variable for alpha:  6.0
+avg iteration where max was found:  250.8
+EAS best length average over 10 iterations: 439.42483124369164
+
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+Average time take to execute eas:  1.285789712E8
+Eas with this variable for alpha:  8.0
+avg iteration where max was found:  200.9
+EAS best length average over 10 iterations: 445.7082862946507
+
+----------------------------------------------
+Elitism changes
+----------------------------------------------
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Average time take to execute eas:  1.16785858E8
+Eas with this variable for elitism factor:  7.5
+avg iteration where max was found:  441.2
+EAS best length average over 10 iterations: 436.2648060675725
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Average time take to execute eas:  1.211404334E8
+Eas with this variable for elitism factor:  15.0
+avg iteration where max was found:  367.0
+EAS best length average over 10 iterations: 434.78464093245486
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Average time take to execute eas:  1.187846548E8
+Eas with this variable for elitism factor:  30.0
+avg iteration where max was found:  214.2
+EAS best length average over 10 iterations: 435.8550394469227
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Average time take to execute eas:  1.108163659E8
+Eas with this variable for elitism factor:  60.0
+avg iteration where max was found:  102.5
+EAS best length average over 10 iterations: 439.00453242784454
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Average time take to execute eas:  1.290828672E8
+Eas with this variable for elitism factor:  120.0
+avg iteration where max was found:  77.3
+EAS best length average over 10 iterations: 446.45856221878887
+
+----------------------------------------------
+----------------------------------------------
+Now Printing ACO results
+----------------------------------------------
+----------------------------------------------
+
+
+----------------------------------------------
+Running alpha changes
+----------------------------------------------
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.009576259E8
+ACo with this variable for beta:  0.0
+Average iteration where max was found:  257.8
+Average ACO Best: 633.909897180274
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.145500465E8
+ACo with this variable for beta:  0.25
+Average iteration where max was found:  252.5
+Average ACO Best: 605.9226393690551
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.026501063E8
+ACo with this variable for beta:  0.5
+Average iteration where max was found:  304.0
+Average ACO Best: 567.5104951062779
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.136214073E8
+ACo with this variable for beta:  1.0
+Average iteration where max was found:  193.9
+Average ACO Best: 519.3321265681558
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.110816504E8
+ACo with this variable for beta:  2.0
+Average iteration where max was found:  308.1
+Average ACO Best: 489.7094156492698
+
+----------------------------------------------
+Running beta changes
+----------------------------------------------
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.05904145E8
+ACo with this variable for beta:  0.0
+Average iteration where max was found:  285.5
+Average ACO Best: 1279.657011850153
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.457845491E8
+ACo with this variable for beta:  2.0
+Average iteration where max was found:  262.1
+Average ACO Best: 525.1055588874196
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.674933146E8
+ACo with this variable for beta:  4.0
+Average iteration where max was found:  250.5
+Average ACO Best: 465.7504878008855
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.186983125E8
+ACo with this variable for beta:  6.0
+Average iteration where max was found:  271.2
+Average ACO Best: 459.83256417053946
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.130095544E8
+ACo with this variable for beta:  8.0
+Average iteration where max was found:  357.2
+Average ACO Best: 458.0055803456751
+
+----------------------------------------------
+Epsilon changes
+----------------------------------------------
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.440310086E8
+ACO with this variable for Epsilo :  0.0
+Average iteration where max was found:  119.9
+Average ACO Best: 453.8893191091773
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.189370279E8
+ACO with this variable for Epsilo :  0.001
+Average iteration where max was found:  402.6
+Average ACO Best: 434.755834589799
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.271182733E8
+ACO with this variable for Epsilo :  0.1
+Average iteration where max was found:  299.8
+Average ACO Best: 527.6244383331065
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.111464956E8
+ACO with this variable for Epsilo :  0.25
+Average iteration where max was found:  224.2
+Average ACO Best: 549.2120665291698
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.475968789E8
+ACO with this variable for Epsilo :  0.5
+Average iteration where max was found:  191.7
+Average ACO Best: 575.0330651737751
+
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+Terminating at number iteration 500
+
+Average time taken to execute aco in seconds:  1.43669401E8
+ACO with this variable for Epsilo :  0.1
+Average iteration where max was found:  222.3
+Average ACO Best: 525.9756480719169
+
