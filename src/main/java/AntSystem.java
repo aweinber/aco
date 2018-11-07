@@ -73,8 +73,7 @@ public class AntSystem {
 	 * @param evaporation_rate rate at which evaporation occurs
 	 */
 	void pheromone_evaporation(double evaporation_rate){
-		ArrayList<Edge> edges = new ArrayList<Edge>(problem.get_edges());
-		for(Edge e: edges){
+		for(Edge e: problem.get_edges()){
 			double old_p, new_p;
 			old_p = e.getPheremone_level();
 			new_p = old_p * (1 - evaporation_rate);
