@@ -40,7 +40,7 @@ public class Test{
 
         TSP problem = new TSP("d2103.tsp", num_ants, 80450);
         int termination_condition = 3;
-        EAS eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition, endTime);
+        EAS eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition);
         long actual_start_time = System.nanoTime();
         eas.execute_eas(endTime);
         long actual_end_time = System.nanoTime();
@@ -58,7 +58,7 @@ public class Test{
 
         problem = new TSP("pcb3038.tsp", num_ants, 137694);
         termination_condition = 3;
-        eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition, endTime);
+        eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition);
         actual_start_time = System.nanoTime();
         eas.execute_eas(endTime);
         actual_end_time = System.nanoTime();
@@ -76,7 +76,7 @@ public class Test{
         endTime = startime + 3600 * 1000;
         problem = new TSP("rl5915.tsp", num_ants, 565530);
         termination_condition = 3;
-        eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition, endTime);
+        eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition);
         actual_start_time = System.nanoTime();
         eas.execute_eas(endTime);
         actual_end_time = System.nanoTime();
@@ -107,7 +107,7 @@ public class Test{
 
         TSP problem = new TSP("d2103.tsp", num_ants, 80450);
         int termination_condition = 3;
-        ACO aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition, endTime);
+        ACO aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition);
         long actual_startTime = System.nanoTime();
         aco.execute_aco(endTime);
         long actual_endTime = System.nanoTime();
@@ -126,7 +126,7 @@ public class Test{
 
         problem = new TSP("pcb3038.tsp", num_ants, 137694);
         termination_condition = 3;
-        aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition, endTime);
+        aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition);
         actual_startTime = System.nanoTime();
         aco.execute_aco(endTime);
         actual_endTime = System.nanoTime();
@@ -145,7 +145,7 @@ public class Test{
 
         problem = new TSP("rl5915.tsp", num_ants, 565530);
         termination_condition = 3;
-        aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition, endTime);
+        aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition);
         actual_startTime = System.nanoTime();
         aco.execute_aco(endTime);
         actual_endTime = System.nanoTime();

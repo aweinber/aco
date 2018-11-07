@@ -29,7 +29,6 @@ public class AntSystem {
 		this.max_iterations = max_iterations;
 		this.termination_condition = termination_condition;
 
-
 	}
 
 	/**

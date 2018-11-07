@@ -32,15 +32,16 @@ public class EAS extends AntSystem{
       move_eas();
       pheromone_evaporation(evaporation_rate);
 
+
       for(int x = 0; x < this.num_ants; x++){
         if(x == 0 && num_iter == 0){
           super.best.set_tour(colony[x].tour);
         }
         else if(colony[x].get_tour_length() < best.get_tour_length()){
-
           super.best.set_tour(colony[x].tour);
           best_iter = num_iter;
         }
+
         colony[x].update_pheromone_level();
       }
 

@@ -112,6 +112,12 @@ public class TSP {
         return best_city;
     }
 
+    private double Distance(City one, City two){
+        return Math.hypot(one.xcord - two.xcord, one.ycord - two.ycord);
+
+
+
+    }
 
     /**
      * Specific to problems that only give you the weight of the original file
