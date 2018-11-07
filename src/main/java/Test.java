@@ -65,7 +65,7 @@ public class Test{
         System.out.println("-----------------------------------------------------------------------------");
 
 
-        problem = new TSP("rl5915", num_ants, 565530);
+        problem = new TSP("rl5915.tsp", num_ants, 565530);
         termination_condition = 3;
         eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition);
         startTime = System.nanoTime();
@@ -124,7 +124,7 @@ public class Test{
         System.out.println("-----------------------------------------------------------------------------");
 
 
-        problem = new TSP("rl5915", num_ants, 565530);
+        problem = new TSP("rl5915.tsp", num_ants, 565530);
         termination_condition = 3;
         aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition);
         startTime = System.nanoTime();
