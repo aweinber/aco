@@ -40,7 +40,6 @@ public class TSP {
 
         while (remaining_cities.size() > 0){
             for (City e: remaining_cities ) {
-                double length = Distance(curr_city, e);
                 edge = new Edge(curr_city, e);
                 edges.add(edge);
             }
@@ -51,10 +50,6 @@ public class TSP {
 
     }
 
-    private double Distance(City one, City two){
-        return Math.hypot(one.xcord - two.xcord, one.ycord - two.ycord);
-
-    }
 
 
     public void set_pheremone_initial(int num_ants, ArrayList<City> cities) {
