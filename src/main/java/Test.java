@@ -13,28 +13,134 @@ public class Test{
 
     public static void main(String[] args) {
 
-//        if(args.length > 0) {
-////            num_ants = Integer.parseInt(args[1]);
-////            max_iterations = Integer.parseInt(args[2]);
-////            alpha = Double.parseDouble(args[3]);
-////            beta = Double.parseDouble(args[4]);
-////            evaporation_factor = Double.parseDouble(args[5]);
-////            elitism_factor = Integer.parseInt(args[6]);
-////            epsilon = Double.parseDouble(args[7]);
-////        }
-
-
-
-            num_ants = 20;
+            num_ants = 30;
             max_iterations = 500;
             alpha = 1;
             beta = 2;
             evaporation_factor = 0.1;
             elitism_factor = num_ants;
             epsilon = 0.1;
-            testing();
+            bigTestEAS();
     }
 
+    public static void bigTestEAS(){
+        num_ants = 30;
+        max_iterations = 500;
+        alpha = 1;
+        beta = 2;
+        evaporation_factor = 0.1;
+        elitism_factor = num_ants;
+        epsilon = 0.1;
+        long TO_SECONDS = 1000000000;
+
+
+        TSP problem = new TSP("d2103.tsp", num_ants, 80450);
+        int termination_condition = 3;
+        EAS eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition);
+        long startTime = System.nanoTime();
+        eas.execute_eas();
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime) / TO_SECONDS;
+        System.out.println("filename is dl2103.tsp");
+        System.out.println("Time take to execute eas:  " + duration);
+        System.out.println("avg iteration where max was found:  " + eas.best_iter);
+        System.out.println("EAS best length average over 10 iterations: " + eas.get_best_length());
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------");
+
+        problem = new TSP("pcb3038.tsp", num_ants, 137694);
+        termination_condition = 3;
+        eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition);
+        startTime = System.nanoTime();
+        eas.execute_eas();
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) /TO_SECONDS;
+        System.out.println("filename is pcb3038.tsp");
+        System.out.println("Time take to execute eas:  " + duration);
+        System.out.println("avg iteration where max was found:  " + eas.best_iter);
+        System.out.println("EAS best length average over 10 iterations: " + eas.get_best_length());
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------");
+
+
+        problem = new TSP("rl5915", num_ants, 565530);
+        termination_condition = 3;
+        eas = new EAS(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, elitism_factor, termination_condition);
+        startTime = System.nanoTime();
+        eas.execute_eas();
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) / TO_SECONDS;
+        System.out.println("filename is rl5915.tsp");
+        System.out.println("Time take to execute eas:  " + duration);
+        System.out.println("avg iteration where max was found:  " + eas.best_iter);
+        System.out.println("EAS best length average over 10 iterations: " + eas.get_best_length());
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------");
+
+    }
+
+    public static void big_test_ACO(){
+        num_ants = 30;
+        max_iterations = 500;
+        alpha = 1;
+        beta = 2;
+        evaporation_factor = 0.1;
+        elitism_factor = num_ants;
+        epsilon = 0.1;
+        long TO_SECONDS = 1000000000;
+
+
+        TSP problem = new TSP("d2103.tsp", num_ants, 80450);
+        int termination_condition = 3;
+        ACO aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition);
+        long startTime = System.nanoTime();
+        aco.execute_aco();
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime) / TO_SECONDS;
+        System.out.println("filename is dl2103.tsp");
+        System.out.println("Time take to execute eas:  " + duration);
+        System.out.println("avg iteration where max was found:  " + aco.best_iter);
+        System.out.println("EAS best length average over 10 iterations: " + aco.get_best_length());
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------");
+
+        problem = new TSP("pcb3038.tsp", num_ants, 137694);
+        termination_condition = 3;
+        aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition);
+        startTime = System.nanoTime();
+        aco.execute_aco();
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) /TO_SECONDS;
+        System.out.println("filename is pcb3038.tsp");
+        System.out.println("Time take to execute eas:  " + duration);
+        System.out.println("avg iteration where max was found:  " + aco.best_iter);
+        System.out.println("EAS best length average over 10 iterations: " + aco.get_best_length());
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------");
+
+
+        problem = new TSP("rl5915", num_ants, 565530);
+        termination_condition = 3;
+        aco = new ACO(problem, num_ants, max_iterations, alpha, beta, evaporation_factor, epsilon, termination_condition);
+        startTime = System.nanoTime();
+        aco.execute_aco();
+        endTime = System.nanoTime();
+        duration = (endTime - startTime) / TO_SECONDS;
+        System.out.println("filename is rl5915.tsp");
+        System.out.println("Time take to execute eas:  " + duration);
+        System.out.println("avg iteration where max was found:  " + aco.best_iter);
+        System.out.println("EAS best length average over 10 iterations: " + aco.get_best_length());
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.println("-----------------------------------------------------------------------------");
+
+
+    }
     public static void testing(){
         num_ants = 30;
         max_iterations = 500;
