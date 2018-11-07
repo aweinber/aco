@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d344e757-cbab-4337-883b-1e258e3496a8" name="Default" comment="Added testing files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ACO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ACO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Ant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Ant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AntSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AntSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/EAS.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/EAS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/TSP.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/TSP.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Test.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -87,8 +82,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Test.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="87" column="22" lean-forward="true" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
+            <state relative-caret-position="360">
+              <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -289,7 +284,7 @@
     <property name="SearchEverywhereHistoryKey" value="120&#9;PSI&#9;JAVA://sun.nio.cs.MS1250" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541558090110" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541558219750" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Project" />
@@ -614,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541557979506</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added testing files">
+      <created>1541558096280</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1541558096280</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -633,7 +635,7 @@
     <frame x="7" y="23" width="1680" height="978" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49828178" visible="true" weight="0.11904762" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49828178" visible="true" weight="0.11904762" />
       <window_info id="Structure" order="1" sideWeight="0.5017182" side_tool="true" weight="0.14766839" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -642,7 +644,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32873562" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.496337" visible="true" weight="0.32988507" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.496337" weight="0.32988507" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39976957" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -881,8 +883,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Test.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="87" column="22" lean-forward="true" selection-start-line="87" selection-start-column="22" selection-end-line="87" selection-end-column="22" />
+        <state relative-caret-position="360">
+          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
         </state>
       </provider>
     </entry>
