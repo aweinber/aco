@@ -9,8 +9,6 @@ public class TSP {
     /* make global variables to create the TSP problem */
     ArrayList<Edge> edges;
     ArrayList<City> cities;
-    ArrayList<Edge> remaining_edges;
-    double pheremone_initial;
     double optimal;
 
 
@@ -63,7 +61,6 @@ public class TSP {
         ArrayList<City> remaining_cities = new ArrayList<City>();
         ArrayList<Edge> tour = new ArrayList<Edge>();
 
-
         for(City e: cities){
             remaining_cities.add(e);
         }
@@ -97,7 +94,6 @@ public class TSP {
         for(Edge e: tour){
             total_distance += e.length;
         }
-
         phermone_rate = num_ants/total_distance;
 
         for(Edge e: edges){
@@ -106,7 +102,6 @@ public class TSP {
         }
 
     }
-
 
     public City get_closest_city(ArrayList<City> remaining_cities, City curr){
         double best_distance = 100000000;
@@ -123,104 +118,9 @@ public class TSP {
     }
 
 
-    public Edge get_closest_edge(ArrayList<Edge> remaining_edges, Edge curr){
-        double best_distance = 100000000;
-        City city_one = new City(0.0,0.0,0);
-        City city_two = new City(0.0,0.0,0);
-        Edge best_edge = new Edge(city_one, city_two);
-
-        for(Edge e: remaining_edges){
-            if(e.city_one == curr.city_two){
-                if(e.length < best_distance) {
-                    best_distance = e.length;
-                    best_edge = e;
-                }
-            }
-
-        }
-        return best_edge;
-    }
-
-    /*
-        This function parses the file and return all of the x,y coordinate pairs
-        int a list of cities.
-     */
-    private ArrayList<City> read_cities(String fileName) {
-        BufferedReader reader;
-        //Set new object
-        ArrayList<Edge> edges = new ArrayList<Edge>();
-        ArrayList<City> cities = new ArrayList<City>();
-        try {
-            //set reader to read lines
-            reader = new BufferedReader(new FileReader(fileName));
-            //new line
-            String line = reader.readLine();
-            //while there are still lines in the file
-            while (line != null) {
-                if (line.length() > 0) {
-                    if (line.contains("EDGE_WEIGHT_TYPE: EXPLICIT")) {
-                         edges = read_upper_row(fileName);
-                    }
-                }
-                line = reader.readLine();
-            }
-            reader.close();
-            cities = read_euc2D(fileName);
-        } catch (IOException e) {
-            System.out.print("error " + e);
-            //e.printStackTrace();
-        }
-        return cities;
-    }
-
-
     /**
      * Specific to problems that only give you the weight of the original file
      */
-    public ArrayList<Edge> read_upper_row(String filename){
-        ArrayList<Edge> edges = new ArrayList<Edge>();
-        BufferedReader reader;
-        try {
-            //set reader to read lines
-            reader = new BufferedReader(new FileReader(filename));
-            //new line
-            String line = reader.readLine();
-            //while there are still lines in the file
-            int CityIndex = 1;
-
-            //while there are more lines
-            while (line != null) {
-                //if it is not empty
-                if (line.length() > 0) {
-
-                    //check to see if its number
-                    if(Character.isDigit(line.charAt(1))) {
-
-                        //if there is whitespace ot two spaces change that
-                        if(Character.isWhitespace(line.charAt(0))){
-                            line = line.replaceFirst(" ", "");
-                        }
-                        line = line.replaceAll("  ", " ");
-
-                        //split array
-                        String[] array = line.split(" ");
-
-                        //set the city index
-                        for(int i = 0; i < array.length; i ++){
-                            System.out.print(array[i] + " ");
-                        }
-                    }
-                    CityIndex +=1;
-                }
-                line = reader.readLine();
-            }
-        }
-        catch(IOException e) {
-            System.out.print("error " + e);
-        }
-        return edges;
-    }
-
 
     public ArrayList<City> read_euc2D(String fileName){
         ArrayList<City> cities = new ArrayList<City>();

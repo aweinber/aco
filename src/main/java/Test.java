@@ -21,7 +21,7 @@ public class Test{
             elitism_factor = num_ants;
             epsilon = 0.1;
             //bigTestEAS();
-            big_test_ACO();
+            //big_test_ACO();
     }
 
     public static void bigTestEAS(){

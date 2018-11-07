@@ -5,15 +5,13 @@ public class EAS extends AntSystem{
   private double evaporation_rate;
   private double elitism;
   public int best_iter= 0;
-  public long endtime;
 
   /**
    * Initializes the EAS problem.
   */ 
-  EAS(TSP problem, int num_ants, int max_iterations, double alpha, double beta, double evaporation_rate, double elitism, int termination_condition, long endtime){
+  EAS(TSP problem, int num_ants, int max_iterations, double alpha, double beta, double evaporation_rate, double elitism, int termination_condition){
     super(problem, num_ants, alpha, beta, max_iterations, termination_condition);
     super.create_colony();
-    this.endtime = endtime;
     this.elitism = elitism;
     this.evaporation_rate = evaporation_rate;
     super.best = new Ant(this.problem, this.alpha, this.beta);
@@ -24,17 +22,14 @@ public class EAS extends AntSystem{
    * Walk through steps of eco -- while termination condition is not met,
    * move the colony, update pheromones, and set a new best tour if one is found.
    */
-  void execute_eas(long endtime) {
+  void execute_eas() {
     System.out.println("in execute eas");
 
     int num_iter = 0;
 
     while (!super.should_terminate(num_iter)) {
 
-      move_eas(endtime);
-      if(System.currentTimeMillis() > endtime){
-        return;
-      }
+      move_eas();
       pheromone_evaporation(evaporation_rate);
 
       for(int x = 0; x < this.num_ants; x++){
@@ -49,9 +44,6 @@ public class EAS extends AntSystem{
         colony[x].update_pheromone_level();
       }
 
-      if(System.currentTimeMillis() > endtime){
-        return;
-      }
 
       update_best_found_so_far_pheromone(elitism);
       num_iter++;
@@ -63,11 +55,8 @@ public class EAS extends AntSystem{
   /**
    * Completes tour for every ant in the colony
    */
-  private void move_eas(long endtime) {
+  private void move_eas() {
       for (int i = 0; i < num_ants; i++) {
-        if(System.currentTimeMillis() > endtime){
-          return;
-        }
         colony[i].complete_tour();
       }
   }
