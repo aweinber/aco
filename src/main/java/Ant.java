@@ -204,7 +204,7 @@ public class Ant {
      * @param tour
      */
     public void set_tour(ArrayList<Edge> tour){
-        this.tour = new ArrayList<Edge>(tour);
+        this.tour = tour;
         //for (Edge item : tour) this.tour.add(item);
     }
 
@@ -215,10 +215,7 @@ public class Ant {
     public void update_pheromone_level() {
         double tour_length = get_tour_length();
         for (Edge e : tour) {
-            double old_p, new_p;
-            old_p = e.getPheremone_level();
-            new_p = old_p + (1 / tour_length);
-            e.setPheremone_level(new_p);
+            e.setPheremone_level( e.pheremone_level + (1 / tour_length));
         }
     }
 
@@ -228,10 +225,7 @@ public class Ant {
      */
     void evaporate_and_update_pheromone_level(double epsilon) {
         for (Edge e: tour) {
-            double old_p, new_p;
-            old_p = e.getPheremone_level();
-            new_p = ((1 - epsilon)*old_p) + (epsilon*e.initial_phermone);
-            e.setPheremone_level(new_p);
+            e.setPheremone_level(((1 - epsilon)* e.pheremone_level) + (epsilon*e.initial_phermone));
         }
     }
 
