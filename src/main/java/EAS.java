@@ -28,7 +28,7 @@ public class EAS extends AntSystem{
 
     while (!super.should_terminate(num_iter)) {
       move_eas();
-      System.out.println("after move");
+      //System.out.println("after move");
       pheromone_evaporation(evaporation_rate);
 
 

@@ -20,9 +20,9 @@ public class Test{
             evaporation_factor = 0.1;
             elitism_factor = num_ants;
             epsilon = 0.1;
-            bigTestEAS();
+            //bigTestEAS();
             //big_test_ACO();
-            //testing();
+            testing();
     }
 
     public static void bigTestEAS(){
@@ -162,8 +162,8 @@ public class Test{
 
     }
     public static void testing(){
-        num_ants = 20;
-        max_iterations = 100;
+        num_ants = 30;
+        max_iterations = 500;
         alpha = 1;
         beta = 2;
         evaporation_factor = 0.1;
