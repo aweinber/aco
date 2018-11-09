@@ -13,7 +13,7 @@ public class Ant {
     /**
      * Tour by which ant completes TSP
      */
-    ArrayList<Edge> tour;
+    ArrayList<Edge> tour = new ArrayList<Edge>();
 
     /**
      * Weight given to the pheromone heuristic
@@ -64,17 +64,20 @@ public class Ant {
 
         remaining_cities.remove(current_city);
 
-        HashMap<Edge, Double> available_edges;
         Edge next_edge;
         City next_city;
 
+        HashMap<Edge, Double> available_edges = new HashMap<Edge, Double>();
+
         while (remaining_cities.size() > 0) {
 
-            available_edges = find_edges(remaining_cities, remaining_edges, current_city);
+            find_edges(remaining_cities, remaining_edges, current_city, available_edges);
 
             available_edges = construct_probability_dictionary(available_edges);
 
             next_edge = pick_next_edge(available_edges);
+
+            available_edges.clear();
 
 
             if (next_edge.city_one == current_city) next_city = next_edge.city_two;
@@ -87,8 +90,7 @@ public class Ant {
             current_city = next_city;
 
         }
-        System.out.println("completed one tour");
-        //return home
+        //System.out.println("completed one tour");
 		Edge e = new Edge(current_city, first_city);
 		tour.add(e);
 
@@ -101,9 +103,8 @@ public class Ant {
      * @return all available edges
      */
     private HashMap<Edge, Double> find_edges(HashSet<City> remaining_cities, HashSet<Edge> remaining_edges,
-                                                          City current_city) {
+                                                          City current_city, HashMap<Edge, Double> available_edges ) {
 
-        HashMap<Edge, Double> available_edges = new HashMap<Edge, Double>();
 
 
 
