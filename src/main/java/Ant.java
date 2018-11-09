@@ -13,7 +13,7 @@ public class Ant {
     /**
      * Tour by which ant completes TSP
      */
-    ArrayList<Edge> tour;
+    ArrayList<Edge> tour = new ArrayList<Edge>();
 
     /**
      * Weight given to the pheromone heuristic
@@ -205,7 +205,7 @@ public class Ant {
      * @param tour
      */
     public void set_tour(ArrayList<Edge> tour){
-        this.tour = new ArrayList<Edge>(tour);
+        this.tour = tour;
         //for (Edge item : tour) this.tour.add(item);
     }
 
