@@ -117,9 +117,6 @@ public class Ant {
                                                           City current_city, HashMap<Edge, Double> available_edges ) {
 
 
-
-
-
         for (Edge edge : remaining_edges) {
 
             if (edge.city_one == current_city) {
