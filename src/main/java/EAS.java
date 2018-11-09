@@ -15,7 +15,7 @@ public class EAS extends AntSystem{
     this.elitism = elitism;
     this.evaporation_rate = evaporation_rate;
     super.best = new Ant(this.problem, this.alpha, this.beta);
-    super.best.tour = new ArrayList<Edge>();
+    //super.best.tour = new ArrayList<Edge>();
   };
 
   /**
@@ -23,13 +23,12 @@ public class EAS extends AntSystem{
    * move the colony, update pheromones, and set a new best tour if one is found.
    */
   void execute_eas() {
-    System.out.println("in execute eas");
 
     int num_iter = 0;
 
     while (!super.should_terminate(num_iter)) {
-
       move_eas();
+      System.out.println("after move");
       pheromone_evaporation(evaporation_rate);
 
 
@@ -68,10 +67,11 @@ public class EAS extends AntSystem{
   private void update_best_found_so_far_pheromone(double elitism){
     double best_length = best.get_tour_length();
     for(Edge e: best.tour){
-      double old_p, new_p;
-      old_p = e.getPheremone_level();
-      new_p = old_p + (elitism / best_length);
-      e.setPheremone_level(new_p);
+      //double old_p, new_p;
+      //old_p = e.getPheremone_level();
+      //new_p = old_p + (elitism / best_length);
+      //e.setPheremone_level(new_p);
+      e.pheremone_level = e.pheremone_level + (elitism / best_length);
     }
   }
 

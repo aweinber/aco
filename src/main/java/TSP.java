@@ -28,10 +28,8 @@ public class TSP {
     /*  creates all of from each city to each other city so that function will */
     public ArrayList<Edge> create_edges(ArrayList<City> cities) {
 
-        ArrayList<City> remaining_cities = new ArrayList<City>();
-
+        ArrayList<City> remaining_cities = new ArrayList<City>(cities);
         /* Copy all the cities to remaining cities is there a way to copy instead of reference */
-        remaining_cities.addAll(cities);
         ArrayList<Edge> edges = new ArrayList<Edge>();
         Edge edge;
 
@@ -53,12 +51,9 @@ public class TSP {
 
 
     public void set_pheremone_initial(int num_ants, ArrayList<City> cities) {
-        ArrayList<City> remaining_cities = new ArrayList<City>();
         ArrayList<Edge> tour = new ArrayList<Edge>();
 
-        for(City e: cities){
-            remaining_cities.add(e);
-        }
+        ArrayList<City> remaining_cities = new ArrayList<City>(cities);
 
         double phermone_rate;
         //int random_index = (int) (Math.random() * remaining_cities.size());
@@ -125,7 +120,6 @@ public class TSP {
 
     public ArrayList<City> read_euc2D(String fileName){
         ArrayList<City> cities = new ArrayList<City>();
-        ArrayList<Edge> edges;
         BufferedReader reader;
         try {
             //set reader to read lines

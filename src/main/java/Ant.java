@@ -55,10 +55,12 @@ public class Ant {
 
         List<City> all_cities_list = new ArrayList<City>(remaining_cities);
 
-        int random_index = (int) (Math.random() * all_cities_list.size());
+        int random_index = (int) (Math.random() * remaining_cities.size());
 
         City first_city = all_cities_list.get(random_index);
         City current_city = first_city;
+
+        //System.gc();
 
         remaining_cities.remove(current_city);
 
@@ -85,7 +87,7 @@ public class Ant {
             current_city = next_city;
 
         }
-
+        System.out.println("completed one tour");
         //return home
 		Edge e = new Edge(current_city, first_city);
 		tour.add(e);
@@ -103,6 +105,9 @@ public class Ant {
 
         HashMap<Edge, Double> available_edges = new HashMap<Edge, Double>();
 
+
+
+
         for (Edge edge : remaining_edges) {
 
             if (edge.city_one == current_city) {
@@ -116,6 +121,12 @@ public class Ant {
                 }
             }
         }
+//        for(Edge e: remaining_edges){
+//            if(e.city_one == current_city){
+//                available_edges.put(e, e.p);
+//            }
+//
+//        }
         return available_edges;
     }
 
@@ -131,7 +142,6 @@ public class Ant {
 
         double probability_best_leg = Math.random();
         double current_floor = 0.0;
-
 
         if (probability_best_leg < PROBABILITY_SELECT_BEST_LEG) {
 
@@ -194,8 +204,8 @@ public class Ant {
      * @param tour
      */
     public void set_tour(ArrayList<Edge> tour){
-        this.tour = new ArrayList<Edge>(tour.size());
-        for (Edge item : tour) this.tour.add(item);
+        this.tour = new ArrayList<Edge>(tour);
+        //for (Edge item : tour) this.tour.add(item);
     }
 
 
