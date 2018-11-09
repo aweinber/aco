@@ -32,10 +32,20 @@ public class Ant {
     private static final double PROBABILITY_SELECT_BEST_LEG = .2;
 
 
+    HashSet<City> remaining_cities;
+
+    HashSet<Edge> remaining_edges;
+
+    List<City> all_cities_list;
+
+
     public Ant(TSP problem, double alpha_weight, double beta_weight) {
         this.problem = problem;
         this.alpha_weight = alpha_weight;
         this.beta_weight = beta_weight;
+        remaining_cities = new HashSet<City>(problem.get_cities());
+        remaining_edges = new HashSet<Edge>(problem.get_edges());
+        all_cities_list = new ArrayList<City>(remaining_cities);
     }
 
 
@@ -49,11 +59,12 @@ public class Ant {
 
         tour = new ArrayList<Edge>();
 
-        HashSet<City> remaining_cities = new HashSet<City>(problem.get_cities());
-
-        HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_edges());
-
-        List<City> all_cities_list = new ArrayList<City>(remaining_cities);
+//        HashSet<City> remaining_cities = new HashSet<City>(problem.get_cities());
+//
+//        HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_edges());
+//
+//        List<City> all_cities_list = new ArrayList<City>(remaining_cities);
+        System.out.println(remaining_cities.size());
 
         int random_index = (int) (Math.random() * remaining_cities.size());
 
