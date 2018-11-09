@@ -9,10 +9,8 @@ public class AntSystem {
 	Ant best;
 
 
-	int max_iterations = 100;
-
-
-	double min_percent_above_optimal = 20;
+	private int max_iterations = 100;
+	private double min_percent_above_optimal = 20;
 
 	private static final int TERMINATE_AT_NUM_ITER = 1;
 	private static final int TERMINATE_AT_PERCENTAGE_FROM_OPTIMAL = 2;
@@ -41,6 +39,9 @@ public class AntSystem {
 		}
 	}
 
+	/*
+		Executes when the program shoudl terminate becasue its reached a max number of iterations.
+	 */
 	protected boolean should_terminate(int num_iter) {
 		if (termination_condition == TERMINATE_AT_FIRST_CONDITION) {
 			return should_terminate_from_max_iterations(num_iter) || should_terminate_from_close_to_optimal();
@@ -58,6 +59,10 @@ public class AntSystem {
 		return num_iter >= max_iterations;
 	}
 
+
+	/*
+	keeps track of whether the function should terminate once its reached a certain percentage from the optimal.
+	 */
 	private boolean should_terminate_from_close_to_optimal() {
 		if (best.tour == null) {
 			return false;

@@ -1,3 +1,7 @@
+/*
+    Keeps track of the citys and the various information needed
+ */
+
 public class City {
     public Double xcord;
     public Double ycord;

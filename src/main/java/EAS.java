@@ -32,6 +32,9 @@ public class EAS extends AntSystem{
       pheromone_evaporation(evaporation_rate);
 
 
+      /*
+      goes through the ants and sees if there is a better tour ther
+       */
       for(int x = 0; x < this.num_ants; x++){
         if(x == 0 && num_iter == 0){
           super.best.set_tour(colony[x].tour);
@@ -41,10 +44,18 @@ public class EAS extends AntSystem{
           best_iter = num_iter;
         }
 
+        /*
+        updates the pheremones for the ants
+         */
+
         colony[x].update_pheromone_level();
       }
 
 
+
+      /*
+      updates the pheremone trail of the best tour found so far.
+       */
       update_best_found_so_far_pheromone(elitism);
       num_iter++;
     }

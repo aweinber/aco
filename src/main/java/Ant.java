@@ -43,9 +43,6 @@ public class Ant {
         this.problem = problem;
         this.alpha_weight = alpha_weight;
         this.beta_weight = beta_weight;
-        remaining_cities = new HashSet<City>(problem.get_cities());
-        remaining_edges = new HashSet<Edge>(problem.get_edges());
-        all_cities_list = new ArrayList<City>(remaining_cities);
     }
 
 
@@ -59,19 +56,17 @@ public class Ant {
 
         tour = new ArrayList<Edge>();
 
-//        HashSet<City> remaining_cities = new HashSet<City>(problem.get_cities());
-//
-//        HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_edges());
-//
-//        List<City> all_cities_list = new ArrayList<City>(remaining_cities);
-        System.out.println(remaining_cities.size());
+        HashSet<City> remaining_cities = new HashSet<City>(problem.get_cities());
+
+        HashSet<Edge> remaining_edges = new HashSet<Edge>(problem.get_edges());
+
+        List<City> all_cities_list = new ArrayList<City>(remaining_cities);
 
         int random_index = (int) (Math.random() * remaining_cities.size());
 
         City first_city = all_cities_list.get(random_index);
         City current_city = first_city;
 
-        //System.gc();
 
         remaining_cities.remove(current_city);
 

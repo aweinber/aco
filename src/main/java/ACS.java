@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ACO extends AntSystem{
+public class ACS extends AntSystem{
 
   private double evaporation_rate;
   private double epsilon;
@@ -10,9 +10,9 @@ public class ACO extends AntSystem{
 
 
   /**
-   * Initializes the ACO problem.
+   * Initializes the ACS problem.
   */ 
-  ACO(TSP problem, int num_ants, int max_iterations, double alpha, double beta, double evaporation_rate, double epsilon, int termination_condition){
+  ACS(TSP problem, int num_ants, int max_iterations, double alpha, double beta, double evaporation_rate, double epsilon, int termination_condition){
     super(problem, num_ants, alpha, beta, max_iterations, termination_condition);
 
     this.evaporation_rate = evaporation_rate;
@@ -25,17 +25,20 @@ public class ACO extends AntSystem{
   };
 
   /**
-   * Walk through steps of aco -- while termination condition is not met,
+   * Walk through steps of acs -- while termination condition is not met,
    * move the colony, update pheromones, and set a new best tour if one is found.
    */
-  void execute_aco() {
+  void execute_acs() {
 
     int num_iter = 0;
 
     while (!super.should_terminate(num_iter)) {
-      move_aco();
+      move_acs();
       super.pheromone_evaporation(evaporation_rate);
 
+      /*
+      goes through each ant and checks to see if there is a better tour.
+       */
       for(int x = 0; x < this.num_ants; x++){
         if(x == 0 && num_iter == 0){
           super.best.set_tour(colony[x].tour);
@@ -52,9 +55,9 @@ public class ACO extends AntSystem{
   }
 
   /**
-   * Moves aco system for every ant. Evaporates after by epsilon.
+   * Moves acs system for every ant. Evaporates after by epsilon.
    */
-  private void move_aco() {
+  private void move_acs() {
     for(int i = 0; i < num_ants; i++){
       super.colony[i].complete_tour();
       super.colony[i].evaporate_and_update_pheromone_level(this.epsilon);

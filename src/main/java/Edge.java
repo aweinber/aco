@@ -5,8 +5,6 @@ public class Edge{
     City city_two;
     double length;
     double pheremone_level;
-    public int city_one_index;
-    public int city_two_index;
     public double initial_phermone;
 
     public Edge(City city_one, City city_two){
@@ -17,12 +15,7 @@ public class Edge{
 
     }
 
-//    public Edge(int city_one_index, int city_two_index, double weight){
-//        this.city_one_index = city_one_index;
-//        this.city_two_index = city_two_index;
-//        this.length = weight;
 //
-//    }
 
     private double Distance(City one, City two){
         return Math.hypot(one.xcord - two.xcord, one.ycord - two.ycord);

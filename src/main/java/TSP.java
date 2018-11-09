@@ -20,7 +20,6 @@ public class TSP {
         cities = read_euc2D(filename);
         edges = create_edges(cities);
         optimal = optimal;
-        //remaining_edges = get_Edges();
         set_pheremone_initial(num_ants, cities);
 
     }
@@ -93,6 +92,9 @@ public class TSP {
 
     }
 
+    /*
+        Gets the closest city from a list of remaining cities.
+     */
     public City get_closest_city(ArrayList<City> remaining_cities, City curr){
         double best_distance = 100000000;
         City best_city = new City(0.0, 0.0, 0);
