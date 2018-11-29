@@ -194,7 +194,7 @@ public class Ant {
             heuristic_sum += calculate_edge_probability(e);
         }
 
-        double edge_probability_sum = 0.0;
+        double edge_probability_sum = 0.0; //used for debugging
         double edge_probability;
 
         for (Edge e : available_edges_to_probability.keySet()) {
