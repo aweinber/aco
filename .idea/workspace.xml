@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d344e757-cbab-4337-883b-1e258e3496a8" name="Default" comment="&#10;added new test">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Ant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/EAS.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/EAS.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -62,20 +62,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Ant.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Ant.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Ant.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
+            <state relative-caret-position="1061">
               <caret line="233" column="13" selection-start-line="233" selection-start-column="13" selection-end-line="233" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EAS.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EAS.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/EAS.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+            <state relative-caret-position="201">
+              <caret line="79" column="27" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -153,11 +153,11 @@
         <option value="$PROJECT_DIR$/src/main/java/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/City.java" />
         <option value="$PROJECT_DIR$/src/main/java/TSP.java" />
-        <option value="$PROJECT_DIR$/src/main/java/EAS.java" />
         <option value="$PROJECT_DIR$/src/main/java/Edge.java" />
         <option value="$PROJECT_DIR$/src/main/java/AntSystem.java" />
         <option value="$PROJECT_DIR$/src/main/java/ACS.java" />
         <option value="$PROJECT_DIR$/src/main/java/Ant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/EAS.java" />
       </list>
     </option>
   </component>
@@ -584,7 +584,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20801000" />
+    <option name="totallyTimeSpent" value="20902000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -868,17 +868,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/EAS.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Ant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        <state relative-caret-position="1061">
+          <caret line="233" column="13" selection-start-line="233" selection-start-column="13" selection-end-line="233" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Ant.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/EAS.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="233" column="13" selection-start-line="233" selection-start-column="13" selection-end-line="233" selection-end-column="13" />
+        <state relative-caret-position="201">
+          <caret line="79" column="27" selection-start-line="79" selection-start-column="27" selection-end-line="79" selection-end-column="27" />
         </state>
       </provider>
     </entry>

@@ -78,10 +78,6 @@ public class EAS extends AntSystem{
   private void update_best_found_so_far_pheromone(double elitism){
     double best_length = best.get_tour_length();
     for(Edge e: best.tour){
-      //double old_p, new_p;
-      //old_p = e.getPheremone_level();
-      //new_p = old_p + (elitism / best_length);
-      //e.setPheremone_level(new_p);
       e.pheremone_level = e.pheremone_level + (elitism / best_length);
     }
   }
