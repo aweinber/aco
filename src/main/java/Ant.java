@@ -96,9 +96,20 @@ public class Ant {
             current_city = next_city;
 
         }
-        //System.out.println("completed one tour");
-		Edge e = new Edge(current_city, first_city);
-		tour.add(e);
+
+        //return home
+        for (Edge e : remaining_edges) {
+            if (e.city_one == first_city && e.city_two == current_city) {
+                current_city = e.city_one;
+                tour.add(e);
+                break;
+            }
+            else if (e.city_two == first_city && e.city_one == first_city) {
+                current_city = e.city_two;
+                tour.add(e);
+                break;
+            }
+        }
 
         get_tour_length();
     }
@@ -108,7 +119,7 @@ public class Ant {
      * @param remaining_cities the remaining cities to visit
      * @return all available edges
      */
-    private HashMap<Edge, Double> find_edges(HashSet<City> remaining_cities, HashSet<Edge> remaining_edges,
+    private void find_edges(HashSet<City> remaining_cities, HashSet<Edge> remaining_edges,
                                                           City current_city, HashMap<Edge, Double> available_edges ) {
 
 
@@ -125,13 +136,7 @@ public class Ant {
                 }
             }
         }
-//        for(Edge e: remaining_edges){
-//            if(e.city_one == current_city){
-//                available_edges.put(e, e.p);
-//            }
-//
-//        }
-        return available_edges;
+
     }
 
 
