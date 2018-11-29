@@ -220,6 +220,7 @@ public class Ant {
 
     /**
      * Update pheremone levels for every edge in the tour
+     * Only used in EAS
      */
     public void update_pheromone_level() {
         double tour_length = get_tour_length();
@@ -230,7 +231,7 @@ public class Ant {
 
     /**
      * Push pheromone level back toward initial
-     * Used in ACS
+     * Only used in ACS
      * @param epsilon degree to which pheromone level returns home
      */
     void evaporate_and_update_pheromone_level(double epsilon) {
