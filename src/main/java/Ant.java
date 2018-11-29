@@ -230,6 +230,7 @@ public class Ant {
 
     /**
      * Push pheromone level back toward initial
+     * Used in ACS
      * @param epsilon degree to which pheromone level returns home
      */
     void evaporate_and_update_pheromone_level(double epsilon) {
