@@ -152,7 +152,7 @@ public class Ant {
         double probability_best_leg = Math.random();
         double current_floor = 0.0;
 
-        if (probability_best_leg < PROBABILITY_SELECT_BEST_LEG) {
+        if (probability_best_leg < PROBABILITY_SELECT_BEST_LEG) { //case where we just pick edge w/ biggest probability
 
             double max_probability = -1;
             Edge most_likely_edge = available_edges_to_probability.keySet().iterator().next(); //first one
